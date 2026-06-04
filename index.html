@@ -5,23 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Petrus Method</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/larspetrus/Roofpig/master/roofpig_and_three.min.js"></script>
 
 <style>
-/* ═══ RESET & BASE ═══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:       #faf8f3;
-  --surface:  #ffffff;
-  --border:   #ddd9d0;
-  --text:     #1a1814;
-  --muted:    #6b6660;
-  --accent:   #c0392b;
-  --dark:     #2c3e50;
-  --alg-bg:   #1e2533;
-  --radius:   5px;
+  --bg:      #faf8f3;
+  --surface: #ffffff;
+  --border:  #ddd9d0;
+  --text:    #1a1814;
+  --muted:   #6b6660;
+  --accent:  #c0392b;
+  --dark:    #2c3e50;
+  --alg-bg:  #1e2533;
+  --radius:  5px;
 }
 
 body {
@@ -32,149 +31,69 @@ body {
   font-size: 15.5px;
 }
 
-.page-wrap {
-  max-width: 940px;
-  margin: 0 auto;
-  padding: 0 28px 100px;
-}
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 0 28px 100px; }
 
-/* ═══ HEADER ═══════════════════════════════════════════════ */
-.site-header {
-  padding: 44px 0 28px;
-  border-bottom: 3px solid var(--accent);
-  margin-bottom: 36px;
-}
+.site-header { padding: 44px 0 28px; border-bottom: 3px solid var(--accent); margin-bottom: 36px; }
 .site-header h1 { font-size: 2.1rem; font-weight: normal; color: var(--dark); line-height: 1.2; }
 .site-header .sub { margin-top: 6px; color: var(--muted); font-style: italic; }
 
-/* ═══ NAV BREADCRUMB ════════════════════════════════════════ */
-.breadcrumb { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; font-family: 'Courier New', monospace; }
-.breadcrumb a { color: var(--muted); text-decoration: none; }
-
-/* ═══ TABLE OF CONTENTS ═════════════════════════════════════ */
-.toc {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  padding: 20px 24px;
-  margin-bottom: 48px;
-  border-radius: var(--radius);
-  column-count: 2;
-  column-gap: 32px;
-}
-.toc-title {
-  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
-  color: var(--muted); margin-bottom: 12px; font-family: 'Courier New', monospace;
-  column-span: all;
-}
+.toc { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); padding: 20px 24px; margin-bottom: 48px; border-radius: var(--radius); column-count: 2; column-gap: 32px; }
+.toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 12px; font-family: 'Courier New', monospace; column-span: all; }
 .toc ol { padding-left: 18px; }
 .toc li { margin: 3px 0; font-size: 0.9rem; }
 .toc a { color: var(--dark); text-decoration: none; }
 .toc a:hover { color: var(--accent); }
 .toc .sub { list-style: disc; padding-left: 16px; font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
 
-/* ═══ SECTION STRUCTURE ══════════════════════════════════════ */
 .page-section { margin-bottom: 64px; padding-top: 4px; }
 .page-section + .page-section { border-top: 1px solid var(--border); padding-top: 48px; }
 
-h2.section-title {
-  font-size: 1.65rem; font-weight: normal; color: var(--dark);
-  border-bottom: 2px solid var(--border); padding-bottom: 8px; margin-bottom: 20px;
-}
-h2.section-title .step-badge {
-  display: inline-block; background: var(--accent); color: #fff;
-  font-family: 'Courier New', monospace; font-size: 0.78rem; padding: 2px 9px;
-  border-radius: 3px; margin-right: 10px; letter-spacing: 1px; vertical-align: middle;
-}
+h2.section-title { font-size: 1.65rem; font-weight: normal; color: var(--dark); border-bottom: 2px solid var(--border); padding-bottom: 8px; margin-bottom: 20px; }
+h2.section-title .step-badge { display: inline-block; background: var(--accent); color: #fff; font-family: 'Courier New', monospace; font-size: 0.78rem; padding: 2px 9px; border-radius: 3px; margin-right: 10px; letter-spacing: 1px; vertical-align: middle; }
 
 h3 { font-size: 1.1rem; color: var(--dark); margin: 26px 0 10px; }
-h4 {
-  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--muted);
-  font-family: 'Courier New', monospace; margin: 22px 0 8px;
-}
+h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); font-family: 'Courier New', monospace; margin: 22px 0 8px; }
 
 p { margin-bottom: 13px; }
 ul, ol { padding-left: 22px; margin-bottom: 13px; }
 li { margin-bottom: 3px; }
 strong { color: var(--dark); }
-em { color: var(--muted); }
 
-/* ═══ ALGORITHM BOXES ════════════════════════════════════════ */
-.alg-box {
-  background: var(--alg-bg);
-  border-radius: var(--radius);
-  padding: 14px 18px;
-  margin: 14px 0;
-  display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap;
-}
-.alg-label {
-  font-family: 'Courier New', monospace; font-size: 0.7rem; text-transform: uppercase;
-  letter-spacing: 1.5px; color: #7ecb9e; min-width: 100px; flex-shrink: 0; padding-top: 3px;
-}
-.alg-notation {
-  font-family: 'Courier New', monospace; font-size: 1.1rem; font-weight: bold;
-  color: #fff; letter-spacing: 1.5px; flex: 1;
-}
-.alg-desc {
-  width: 100%; font-size: 0.8rem; color: #9ba8b8; font-style: italic;
-  padding-left: 114px; margin-top: 3px;
-}
+.alg-box { background: var(--alg-bg); border-radius: var(--radius); padding: 14px 18px; margin: 14px 0; display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+.alg-label { font-family: 'Courier New', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #7ecb9e; min-width: 100px; flex-shrink: 0; padding-top: 3px; }
+.alg-notation { font-family: 'Courier New', monospace; font-size: 1.1rem; font-weight: bold; color: #fff; letter-spacing: 1.5px; flex: 1; }
+.alg-desc { width: 100%; font-size: 0.8rem; color: #9ba8b8; font-style: italic; padding-left: 114px; margin-top: 3px; }
 
-/* ═══ NAMED MOVE CALLOUT ════════════════════════════════════ */
-.named-move {
-  background: #f0f4fb; border: 1px solid #c8d4eb;
-  border-left: 4px solid var(--dark);
-  padding: 13px 17px; border-radius: var(--radius); margin: 16px 0;
-}
+.named-move { background: #f0f4fb; border: 1px solid #c8d4eb; border-left: 4px solid var(--dark); padding: 13px 17px; border-radius: var(--radius); margin: 16px 0; }
 .named-move .nm-title { font-weight: bold; color: var(--dark); margin-bottom: 4px; }
-.named-move .nm-alg   { font-family: 'Courier New', monospace; font-size: 1rem; color: var(--accent); font-weight: bold; }
-.named-move .nm-note  { font-size: 0.83rem; color: var(--muted); margin-top: 4px; font-style: italic; }
+.named-move .nm-alg { font-family: 'Courier New', monospace; font-size: 1rem; color: var(--accent); font-weight: bold; }
+.named-move .nm-note { font-size: 0.83rem; color: var(--muted); margin-top: 4px; font-style: italic; }
 
-/* ═══ CUBE WIDGETS ═══════════════════════════════════════════ */
-.cube-row {
-  display: flex; flex-wrap: wrap; gap: 18px; margin: 18px 0; align-items: flex-start;
-}
+.cube-row { display: flex; flex-wrap: wrap; gap: 18px; margin: 18px 0; align-items: flex-start; }
 .cube-widget { text-align: center; }
-.cube-widget .roofpig { width: 160px; height: 180px; display: block; margin: 0 auto; }
-.cube-widget .cube-label {
-  font-size: 0.75rem; color: var(--muted); margin-top: 5px; max-width: 160px;
-  font-family: 'Courier New', monospace; font-style: italic;
-}
-.cube-widget .cube-alg {
-  font-family: 'Courier New', monospace; font-size: 0.82rem; font-weight: bold;
-  color: var(--dark); margin-top: 2px; max-width: 160px;
-}
+.cube-widget .roofpig { display: block; margin: 0 auto; }
+.rp140 { width: 140px; height: 160px; }
+.rp130 { width: 130px; height: 148px; }
+.rp100 { width: 100px; height: 114px; }
+.rpex  { width: 240px; height: 266px; }
+.rpidx { width: 120px; height: 136px; }
+.cube-widget .cube-alg { font-family: 'Courier New', monospace; font-size: 0.78rem; font-weight: bold; color: var(--dark); margin-top: 3px; max-width: 160px; }
+.cube-widget .cube-label { font-size: 0.72rem; color: var(--muted); margin-top: 2px; max-width: 160px; font-style: italic; }
 
-/* Dense grid for index pages */
-.cube-grid {
-  display: flex; flex-wrap: wrap; gap: 14px; margin: 18px 0;
-}
-.cube-grid .cube-widget .roofpig { width: 140px; height: 158px; }
+.cube-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
 
-/* ═══ TABLES ═════════════════════════════════════════════════ */
-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-th { background: var(--dark); color: #fff; padding: 8px 12px; text-align: left; font-family: 'Courier New', monospace; font-size: 0.78rem; letter-spacing: 0.5px; }
-td { padding: 7px 12px; border-bottom: 1px solid var(--border); }
-tr:nth-child(even) td { background: #f4f2ee; }
+table.rules-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+table.rules-table th { background: var(--dark); color: #fff; padding: 8px 12px; text-align: left; font-family: 'Courier New', monospace; font-size: 0.78rem; }
+table.rules-table td { padding: 7px 12px; border-bottom: 1px solid var(--border); }
+table.rules-table tr:nth-child(even) td { background: #f4f2ee; }
 .good { color: #27ae60; font-weight: bold; }
 .bad  { color: var(--accent); font-weight: bold; }
 
-/* ═══ INFO / WARN BOXES ══════════════════════════════════════ */
 .info  { background: #e8f4fd; border: 1px solid #b3d7f0; border-radius: var(--radius); padding: 13px 17px; margin: 16px 0; font-size: 0.9rem; }
 .warn  { background: #fef9e7; border: 1px solid #f0d060; border-radius: var(--radius); padding: 13px 17px; margin: 16px 0; font-size: 0.9rem; }
-.note  { background: #f0ede6; border-left: 3px solid var(--muted); padding: 10px 16px; margin: 14px 0; font-size: 0.88rem; color: var(--muted); }
+.note  { background: #f0ede6; border-left: 3px solid var(--muted); padding: 10px 16px; margin: 14px 0; font-size: 0.88rem; color: var(--muted); font-style: italic; }
+.ruta  { background: #fff8e1; border: 1px solid #f0c040; border-radius: var(--radius); padding: 13px 17px; margin: 16px 0; font-size: 0.88rem; }
 
-/* ═══ SEQUENCE LIST (Step 4b) ════════════════════════════════ */
-.seq-list { font-family: 'Courier New', monospace; }
-.seq-list .seq-row {
-  display: flex; align-items: baseline; gap: 12px; padding: 5px 0;
-  border-bottom: 1px solid var(--border);
-}
-.seq-list .seq-id   { min-width: 34px; font-weight: bold; color: var(--dark); font-size: 0.88rem; }
-.seq-list .seq-alg  { font-size: 0.95rem; font-weight: bold; color: var(--accent); }
-.seq-list .seq-note { font-size: 0.8rem; color: var(--muted); font-family: Georgia, serif; font-style: italic; }
-
-/* ═══ REF STRIP ══════════════════════════════════════════════ */
 .ref-strip { background: var(--dark); color: #fff; border-radius: var(--radius); padding: 22px 26px; margin: 40px 0; }
 .ref-strip h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: rgba(255,255,255,0.5); font-family: 'Courier New', monospace; }
 .ref-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
@@ -183,105 +102,73 @@ tr:nth-child(even) td { background: #f4f2ee; }
 .ref-item .ri-alg  { font-family: 'Courier New', monospace; font-size: 0.86rem; color: #fff; }
 .ref-item .ri-step { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 3px; }
 
-/* ═══ SECTION DIVIDER ════════════════════════════════════════ */
-hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+.ixrow { display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0; }
+.ixcell { text-align: center; font-size: 0.8rem; }
+.ixcell b { display: block; margin-bottom: 4px; }
 
+hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 footer { color: var(--muted); font-size: 0.8rem; text-align: center; padding-top: 24px; border-top: 1px solid var(--border); }
 
-/* ═══════════════════════════════════════════════════════════════
-   PRINT STYLES
-   Strategy:
-   1. Before printing JS converts every Roofpig canvas → <img data-url>
-   2. Print CSS hides the canvas, shows the snapshot img
-   3. After printing JS removes the snapshot imgs
-   ══════════════════════════════════════════════════════════════ */
+/* ═══ PRINT ═══════════════════════════════════════════════════ */
 @media print {
   body { background: white; font-size: 11pt; line-height: 1.55; }
   .page-wrap { max-width: 100%; padding: 0; }
   .toc { column-count: 1; page-break-after: always; }
-  .site-header { padding: 0 0 12pt; }
-
-  /* Each major section starts on a new page */
   .page-section { page-break-before: always; }
   .page-section:first-child { page-break-before: avoid; }
-
-  /* Hide interactive controls that Roofpig renders */
   .roofpig canvas { display: none !important; }
-  .roofpig .roofpig-controls { display: none !important; }
-
-  /* Show the print snapshot image instead */
-  .roofpig .print-snapshot {
-    display: block !important;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  /* Alg text always visible under each cube */
+  .roofpig .print-snapshot { display: block !important; width: 100%; height: 100%; object-fit: contain; }
   .cube-alg { display: block !important; font-size: 9pt; }
-  .cube-label { display: block !important; }
-
-  /* Algorithm boxes print in a lighter style */
   .alg-box { background: #f4f4f4 !important; color: #000 !important; border: 1pt solid #ccc; page-break-inside: avoid; }
-  .alg-label { color: #555 !important; }
   .alg-notation { color: #000 !important; }
-  .alg-desc { color: #555 !important; }
-
-  .named-move { page-break-inside: avoid; background: #f8f8f8 !important; border-color: #999 !important; }
+  .named-move { page-break-inside: avoid; }
   .named-move .nm-alg { color: #000 !important; }
-
+  .cube-row, .cube-grid, .ixrow { page-break-inside: avoid; }
   .ref-strip { background: #f0f0f0 !important; color: #000 !important; }
-  .ref-item  { background: #e8e8e8 !important; }
-  .ref-item .ri-name { color: #000 !important; }
-  .ref-item .ri-alg  { color: #000 !important; }
-  .ref-item .ri-step { color: #555 !important; }
-
-  /* Avoid breaking cube rows across pages */
-  .cube-row, .cube-grid { page-break-inside: avoid; }
-  .cube-widget { page-break-inside: avoid; }
-
-  /* Dense grids on index pages — 4 per row in print */
-  .cube-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; }
-
+  .ref-item .ri-name, .ref-item .ri-alg, .ref-item .ri-step { color: #000 !important; }
   a { color: inherit; text-decoration: none; }
-  .breadcrumb { display: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- ══ Shared Roofpig base configs ════════════════════════════ -->
 <script>
-ROOFPIG_CONF_BASE   = "colors=F:r B:o R:b L:g U:y D:w|pov=Ufl";
-ROOFPIG_CONF_S3     = "base=BASE|solved=ULB-/ce|flags=showalg";
-ROOFPIG_CONF_S4     = "base=BASE|solved=ULB-/ce|flags=showalg";
-ROOFPIG_CONF_LL     = "base=BASE|solved=U-|flags=showalg";
-ROOFPIG_CONF_LLE    = "base=BASE|solved=U-/c|flags=showalg";
-ROOFPIG_CONF_LLC    = "base=BASE|solved=U-/e|flags=showalg";
+// Base configs — exact values from configs.js and each page's inline script
+ROOFPIG_CONF_F1 = "colored=DFL- | colors=U:o F:g R:y D:r B:b L:w";
+ROOFPIG_CONF_F2 = "colored=*/m BR- | colors=L:y U:g B:r R:w D:b F:o";
+ROOFPIG_CONF_F3 = "solved=UR-";
+ROOFPIG_CONF_F3_6 = "solved=UR- | colored=u/me R RU Rb Rd";
+ROOFPIG_CONF_F4 = "solved=UR-|colored=U U-|colors=F:b B:g U:r D:o R:w L:y";
+ROOFPIG_CONF_4B = "solved=UR-/ec D L| colored=U U-| colors=F:b B:g U:r D:o R:w L:y";
+ROOFPIG_CONF_F5 = "solved=U- | colors=F:b B:g U:r D:o R:w L:y";
+ROOFPIG_CONF_F6 = "solved=U-| colored=u/me| colors=F:b B:g U:r D:o R:w L:y| hover=2.7";
+ROOFPIG_CONF_F7 = "solved=U-| colors=F:b B:g U:r D:o R:w L:y";
+ROOFPIG_CONF_EX = "hover=far | colors=U:r F:b R:w D:o B:g L:y";
+ROOFPIG_CONF_X  = "solved=U-| colors=F:b B:g U:r D:o R:w L:y| flags=showalg";
+ROOFPIG_CONF_Y  = "solved=U-| colored=U*/c u| colors=F:b B:g U:r D:o R:w L:y| flags=showalg";
+ROOFPIG_CONF_Z  = "solved=U-| colors=F:b B:g U:r D:o R:w L:y";
 </script>
 
 <div class="page-wrap">
 
-<!-- ════════════════════ HEADER ════════════════════════════════ -->
+<!-- ══ HEADER ══════════════════════════════════════════════════ -->
 <header class="site-header">
   <h1>Solving Rubik's Cube for Speed</h1>
   <div class="sub">The Petrus Method &nbsp;·&nbsp; by Lars Petrus &nbsp;·&nbsp; <em>lar5.com/cube</em></div>
 </header>
 
-<!-- ════════════════════ TOC ═══════════════════════════════════ -->
+<!-- ══ TOC ══════════════════════════════════════════════════════ -->
 <nav class="toc">
   <div class="toc-title">Contents</div>
   <ol>
     <li><a href="#intro">Introduction &amp; The Basic Idea</a></li>
-    <li><a href="#basics">Basic Cube Facts</a></li>
-    <li><a href="#terminology">Terminology &amp; Notation</a></li>
     <li><a href="#step1">Step 1 — Build the 2×2×2</a></li>
     <li><a href="#step2">Step 2 — Expand to 2×2×3</a></li>
     <li><a href="#step3">Step 3 — Twist the Edges</a>
       <ul class="sub">
-        <li><a href="#eo2">2 bad edges — all cases</a></li>
-        <li><a href="#eo4">4 bad edges — all cases</a></li>
-        <li><a href="#eo6">6 bad edges — all cases</a></li>
+        <li><a href="#eo2">2 bad edges</a></li>
+        <li><a href="#eo4">4 bad edges</a></li>
+        <li><a href="#eo6">6 bad edges</a></li>
       </ul>
     </li>
     <li><a href="#step4">Step 4 — Finish 2 Layers</a>
@@ -293,107 +180,66 @@ ROOFPIG_CONF_LLC    = "base=BASE|solved=U-/e|flags=showalg";
     <li><a href="#step6">Step 6 — Twist the Corners</a></li>
     <li><a href="#step7">Step 7 — Position the Edges</a></li>
     <li><a href="#blox">Block Building Patterns</a></li>
-    <li><a href="#ymain">Step 5+6 Full Index (A–G)</a></li>
-    <li><a href="#xmain">Step 6+7 Full Index (A–G)</a></li>
-    <li><a href="#examples">13 Annotated Solution Examples</a></li>
-    <li><a href="#physical">Physical — Speed &amp; Dexterity</a></li>
-    <li><a href="#mental">Mental — The Zen of the Cube</a></li>
+    <li><a href="#ymain">Step 5+6 Index</a></li>
+    <li><a href="#xmain">Step 6+7 Index</a></li>
+    <li><a href="#examples">13 Annotated Solutions</a></li>
     <li><a href="#quickref">Algorithm Quick Reference</a></li>
   </ol>
 </nav>
 
 
-<!-- ════════════════════ INTRODUCTION ═════════════════════════ -->
+<!-- ══ INTRO ════════════════════════════════════════════════════ -->
 <section class="page-section" id="intro">
 <h2 class="section-title">Introduction &amp; The Basic Idea</h2>
 
 <p>This is a tutorial for my method of solving Rubik's Cube. It is intended both for beginners and experienced cubers. There is no group theory or written notation involved, I just show you how to move.</p>
-
 <p>Using this method, I won the 1981 Swedish championships, and finished 4th in the first world championships in Budapest 1982. I also won a minor world championship in 2005.</p>
 
-<h3>Why not the layer-by-layer method?</h3>
+<h3>The Basic Idea</h3>
 <p>Most people solve the cube layer by layer. This is a simple way for the human mind to approach the problem, but it is useless for speed cubing. No matter how good you are, you will use more than 100 moves. Going for speed, I use 55–60 moves on average. Going for few moves, I average 40–45.</p>
 
-<div class="warn">
-<strong>The fundamental problem with the layer method:</strong> When you have completed the first layer, you can do <em>nothing</em> without breaking it up. So you break it, do something useful, then restore it. Break it, do something, restore it. Again and again. In a <em>good</em> solution you do something useful all the time. The first layer is in the way of the solution, not a part of it!
-</div>
+<div class="warn">The basic problem with the layer method is big, and obvious once you realize it. When you have completed the first layer, you can do <strong>nothing</strong> without breaking it up. So you break it, do something useful, then restore it. Break it, do something, restore it. Again and again. In a <strong>good</strong> solution you do something useful all the time. The first layer is in the way of the solution, not a part of it!</div>
 
-<h3>The method at a glance</h3>
-
+<h3>Sample solution</h3>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=F R2 B' L' B R2 F2 D F2 L' D2 L2 F2 U2 R2|flags=showalg"></div>
-    <div class="cube-label">Sample full solution</div>
+    <div class="roofpig rp140" data-config="pov=Bld| hover=none| alg=L2 D U2 B2 L B> U'+U> F U' F U' F' L> U>>+U' F2 UZ R2 U F R' F' R F' R2 F R' F R F' R2 F D R2 D' R' D R D' R' D R' D' R2"></div>
+    <div class="cube-label">Click ▶ for a sample solution</div>
   </div>
 </div>
-<p>Turn 1–5 is Step 1 · Turns 6–12 is Step 2 · Turns 12–16 is Step 3 · Turns 17–29 is Step 4 · Step 5 was not needed · Turns 30–41 is Steps 6–7</p>
+<ul>
+  <li>Turn 1–5 is Step 1</li>
+  <li>Turn 6–12 is Step 2</li>
+  <li>Turn 12–16 is Step 3</li>
+  <li>Turn 17–29 is Step 4</li>
+  <li>Step 5 was not needed</li>
+  <li>Turn 30–41 is Steps 6–7</li>
+</ul>
 
-<p>The Petrus method has 7 steps:</p>
+<h3>The 7 Steps</h3>
 <ol>
-  <li><strong>Step 1</strong> — Build a 2×2×2 corner</li>
-  <li><strong>Step 2</strong> — Expand to 2×2×3</li>
-  <li><strong>Step 3</strong> — Twist the edges</li>
-  <li><strong>Step 4</strong> — Finish 2 layers</li>
-  <li><strong>Step 5</strong> — Position the corners</li>
-  <li><strong>Step 6</strong> — Twist the corners</li>
-  <li><strong>Step 7</strong> — Position the edges</li>
+  <li>Step 1 — Build a 2×2×2 corner</li>
+  <li>Step 2 — Expand to 2×2×3</li>
+  <li>Step 3 — Twist the edges</li>
+  <li>Step 4 — Finish 2 layers</li>
+  <li>Step 5 — Position the corners</li>
+  <li>Step 6 — Twist the corners</li>
+  <li>Step 7 — Position the edges</li>
 </ol>
 </section>
 
 
-<!-- ════════════════════ BASICS ════════════════════════════════ -->
-<section class="page-section" id="basics">
-<h2 class="section-title">Basic Cube Facts</h2>
-
-<p>You need to understand what the parts of the cube are. It is <strong>not</strong> 54 stickers. And it is <strong>not</strong> 27 little cubes. It <strong>is</strong> 12 edge and 8 corner pieces moving inside a frame of 6 unmovable center pieces. Each edge has two stickers, and each corner has three stickers.</p>
-
-<div class="info">
-<strong>Centers never move.</strong> No matter how much you turn, the 6 center pieces always remain in place. The "green layer" is always the one with the green center, regardless of how many green stickers are on it otherwise.
-</div>
-
-<p>The common error by people who don't know how the cube is built is to try to move individual stickers, instead of pieces. They think they have accomplished something when they "complete one side". This is a quite useless position, since almost none of the <em>pieces</em> are in the right position. That they happen to have the right sticker colour by the center is just a pretty accident, and does not mean you're anywhere near a solution.</p>
-
-<p>When reassembling a disassembled cube, put it back in the solved state. If not, you have a 93% (11/12) chance of getting it in an unsolvable position.</p>
-</section>
-
-
-<!-- ════════════════════ TERMINOLOGY ══════════════════════════ -->
-<section class="page-section" id="terminology">
-<h2 class="section-title">Terminology &amp; Notation</h2>
-
-<p>As far as I know, there is no universally accepted terminology for cubing. For this tutorial we use the following exact conventions.</p>
-
-<table>
-<tr><th>Term</th><th>Definition</th></tr>
-<tr><td><strong>Corner</strong></td><td>A physical plastic corner piece. Has 3 stickers.</td></tr>
-<tr><td><strong>Edge</strong></td><td>A physical plastic edge piece. Has 2 stickers.</td></tr>
-<tr><td><strong>Piece</strong></td><td>A corner or an edge.</td></tr>
-<tr><td><strong>Sticker</strong></td><td>A coloured sticker. Nine on each side.</td></tr>
-<tr><td><strong>Side</strong></td><td>One of the 6 sides of the cube. A 2-dimensional concept.</td></tr>
-<tr><td><strong>Layer</strong></td><td>The cube consists of three layers (top/middle/bottom). 3-dimensional. The "green layer" is the one with the green center, regardless of how many green stickers are on it.</td></tr>
-<tr><td><strong>Twist / twisted</strong></td><td>How a piece is oriented. A corner can be twisted in 3 different ways, an edge in 2.</td></tr>
-<tr><td><strong>Turn / turning</strong></td><td>The physical act of rotating a side.</td></tr>
-<tr><td><strong>Position (noun)</strong></td><td>A place in the cube, relative to the centers. Positions don't move; pieces do.</td></tr>
-<tr><td><strong>Move sequence</strong></td><td>A useful sequence of turns. Named sequences in this tutorial: Niklas™, Sune™, AntiSune™, Allan™, Bert™, Arne™, Bruno™, Rune™, Benny™.</td></tr>
-</table>
-
-<h3>Standard Notation</h3>
-<p><strong>Face letters:</strong> F (Front) · B (Back) · R (Right) · L (Left) · U (Up) · D (Down)</p>
-<p><strong>Suffixes:</strong> <em>none</em> = 90° clockwise &nbsp;·&nbsp; <code>'</code> (prime) = 90° counter-clockwise &nbsp;·&nbsp; <code>2</code> = 180°</p>
-<p><strong>Slice moves:</strong> M (between L and R, like L) · E (between U and D, like D) · S (between F and B, like F)</p>
-<p><strong>Examples:</strong> <code>R</code> = right face clockwise &nbsp;·&nbsp; <code>U'</code> = top face counter-clockwise &nbsp;·&nbsp; <code>F2</code> = front face 180°</p>
-</section>
-
-
-<!-- ════════════════════ STEP 1 ════════════════════════════════ -->
+<!-- ══ STEP 1 ════════════════════════════════════════════════════ -->
 <section class="page-section" id="step1">
 <h2 class="section-title"><span class="step-badge">STEP 1</span> Build the 2×2×2 Corner</h2>
 
 <p>The goal in this step is to build a 2×2×2 block. Or more precisely, to place one corner and its three neighbouring edges in their correct positions, solving 4 out of the 20 cube pieces.</p>
 
 <h4>Beginner</h4>
-<p>For the beginner it is often easiest to pick a corner that you will always start with. This makes it easy to find the pieces you need. We will use the blue-yellow-orange corner. This means that the three edges are the blue-orange, the orange-yellow, and the blue-yellow.</p>
-<div class="note"><strong>What if there IS NO blue-yellow-orange corner?</strong> That's normal. There are many different colour schemes on cubes in the world, so whatever colour arrangement I pick for this site, it will not match most cubes. The method works for any set of colours, so try to focus on the method, not the particular colours used as examples.</div>
+<p>For the beginner it is often easiest to pick a corner that you will always start with. We will use the blue-yellow-orange corner. This means that the three edges are the blue-orange, the orange-yellow, and the blue-yellow.</p>
+
+<div class="ruta"><strong>What if there IS NO blue-yellow-orange corner?</strong> That's normal. There are many different colour schemes on cubes in the world. The method works for any set of colours, so try to focus on the method, not the particular colours used as examples.</div>
+
 <p>There are many special cases, but this is the basic way I solve it:</p>
 <ol>
   <li>Pair up the corner with an edge.</li>
@@ -405,118 +251,96 @@ ROOFPIG_CONF_LLC    = "base=BASE|solved=U-/e|flags=showalg";
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R U' R' F R' F' R U R U' R'|flags=showalg"></div>
-    <div class="cube-alg">R U' R' F R' F' R U R U' R'</div>
-    <div class="cube-label">Example 2×2×2 build</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U R U' R2 F R F' U R|flags=showalg"></div>
-    <div class="cube-alg">U R U' R2 F R F' U R</div>
-    <div class="cube-label">Another example</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U' R U R' U F' U F|flags=showalg"></div>
-    <div class="cube-alg">U' R U R' U F' U F</div>
-    <div class="cube-label">Another example</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R U2 R' U R U' R'|flags=showalg"></div>
-    <div class="cube-alg">R U2 R' U R U' R'</div>
-    <div class="cube-label">Advanced: breaking the block</div>
+    <div class="roofpig rp140" data-config="base=F1 | alg=D' B' F2 L' F' U' R U2"></div>
+    <div class="cube-alg">D' B' F2 L' F' U' R U2</div>
+    <div class="cube-label">Beginner example</div>
   </div>
 </div>
 
-<h4>Intermediate</h4>
-<p>After you can easily do one corner, you should start looking at all 8 corners and choosing to start with the one that is fastest to solve. Normally, one or two are real easy (and some are hard). Picking the easy one makes quite a difference.</p>
-<p>At competitions there is normally a 15-second period where you get to look at the cube before timing starts. This is what you do during that time (though 2–5 seconds are usually enough).</p>
-
 <h4>Advanced</h4>
-<p>Try to be aware of where the four pieces are at all times. You should be able to visualise the full step solution in your mind before starting. Spend a lot of time looking at this step, and you will start seeing 5 moves ahead or more surprisingly often.</p>
-<p>For more advanced techniques, check out the <a href="#blox">Block Building</a> section.</p>
+<p>Here are my solutions for 4 random cube positions. When you can choose between 8 corners you should get 1–2 fewer moves on average.</p>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F1 | alg=F' R D U B' U"></div>
+    <div class="cube-alg">F' R D U B' U</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F1 | alg=B2 D' L' U B U D' B2"></div>
+    <div class="cube-alg">B2 D' L' U B U D' B2</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F1 | alg=F D2 U' B U' R' U"></div>
+    <div class="cube-alg">F D2 U' B U' R' U</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F1 | alg=L' D B D' B2 R2"></div>
+    <div class="cube-alg">L' D B D' B2 R2</div>
+  </div>
+</div>
+
+<p>For more advanced techniques, check out the <a href="#blox">block building section</a>.</p>
 </section>
 
 
-<!-- ════════════════════ STEP 2 ════════════════════════════════ -->
+<!-- ══ STEP 2 ════════════════════════════════════════════════════ -->
 <section class="page-section" id="step2">
 <h2 class="section-title"><span class="step-badge">STEP 2</span> Expand to 2×2×3</h2>
 
-<p>After step 1, we have a solved part of the cube, and we have three sides that we can move freely, without breaking what we have accomplished. Not bad!</p>
 <p>In step 2 we expand what we have to a 2×2×3 block. That is, we add one corner and two edges to the solved block, going from 4 to 7 solved pieces of 20.</p>
 
 <h4>Beginner</h4>
-<p>Choose one of the three possible corners to expand to. This is quite similar to how you work in step 1. When you're familiar with step 1 you should have no problem. But be sure not to break up the 2×2×2 block! You need to be aware where it is at all times.</p>
+<p>Choose one of the three possible corners to expand to. This is quite similar to how you work in step 1. But be sure not to break up the 2×2×2 block! You need to be aware where it is at all times.</p>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U' R U R' F U F' U2 F' U F|flags=showalg"></div>
-    <div class="cube-alg">U' R U R' F U F' U2 F' U F</div>
-    <div class="cube-label">Example 2×2×3 expansion</div>
+    <div class="roofpig rp140" data-config="base=F2 | alg=U2 B R B U2"></div>
+    <div class="cube-alg">U2 B R B U2</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F' U F U' R U R'|flags=showalg"></div>
-    <div class="cube-alg">F' U F U' R U R'</div>
-    <div class="cube-label">Another example</div>
+    <div class="roofpig rp140" data-config="base=F2 | alg=B R U B R' U"></div>
+    <div class="cube-alg">B R U B R' U</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U R2 U'|flags=showalg"></div>
-    <div class="cube-alg">U R2 U'</div>
-    <div class="cube-label">Swing pattern</div>
+    <div class="roofpig rp140" data-config="base=F2 | alg=B2 R' B R' B R' U R U"></div>
+    <div class="cube-alg">B2 R' B R' B R' U R U</div>
   </div>
 </div>
-
-<h4>Intermediate</h4>
-<p>You have three corners to choose from. It's important to pick the easiest, just like in step 1. The hardest positions are when a piece is in its right position, but twisted the wrong way. The easiest way to deal with that is to just pick another corner to solve!</p>
 
 <h4>Advanced</h4>
-<p>These simple and very useful moves took months to figure out — they involve breaking the holy 2×2×2 block. As an exercise, try to find how to do the example above in 7 moves instead of 9 by breaking the 2×2×2. Hint: <strong>First move:</strong> turn the green layer ¼ clockwise. <strong>Second move</strong> breaks the 2×2×2.</p>
-<p>Sometimes, the first move of step 3 will be the opposite of the last move in this phase. So with some foresight you can skip both. Also, while doing the last turn of step 2, you can often stop half way, and fix a pair of bad edges midway.</p>
-<p>For more advanced techniques, check out the <a href="#blox">Block Building</a> section.</p>
-
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R U' R' U' R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U' R' U' R U R'</div>
-    <div class="cube-label">Advanced: break &amp; fix</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R U R' U2 R U' R'|flags=showalg"></div>
-    <div class="cube-alg">R U R' U2 R U' R'</div>
-    <div class="cube-label">Advanced: break &amp; fix 2</div>
+    <div class="roofpig rp140" data-config="base=F2 | alg=F' U F L U L'"></div>
+    <div class="cube-alg">F' U F L U L'</div>
+    <div class="cube-label">Breaks the 2×2×2 block — advanced technique</div>
   </div>
 </div>
+<p>Sometimes, the first move of step 3 will be the opposite of the last move in this phase, so with some foresight you can skip both. Also, while doing the last turn of step 2, you can often stop halfway and fix a pair of bad edges midway.</p>
+<p>For more advanced techniques, check out the <a href="#blox">block building section</a>.</p>
 </section>
 
 
-<!-- ════════════════════ STEP 3 ════════════════════════════════ -->
+<!-- ══ STEP 3 ════════════════════════════════════════════════════ -->
 <section class="page-section" id="step3">
 <h2 class="section-title"><span class="step-badge">STEP 3</span> Twist the Edges</h2>
 
-<p>The basic idea of the method is to solve the entire cube from here by just turning the 2 free sides. But if you try to do that, you soon discover that some edges are always twisted the wrong way. We call those the "bad" edges. We need to fix that before we move on. Step 3 is this fix.</p>
-<p>Step 3 can seem incomprehensible before you "get" it, but it is really the simplest step in the method.</p>
+<p>The basic idea of the method is to solve the entire cube from here by just turning the 2 free sides. But if you try to do that, you soon discover that some edges are always twisted the wrong way. We call those the "bad" edges. Step 3 fixes that.</p>
 
 <h4>Beginner</h4>
-<p>Basically, we need to do 2 things in step 3.</p>
-<p><strong>1. Identify the bad edges.</strong> There are 7 edges not part of the 2×2×3. Pick any one of them, say the red/blue one. Using only the 2 free layers (that is, not breaking up the 2×2×3), place it between the red and blue centre pieces. If it's twisted right, it's good. Otherwise it's bad. Make a (mental or on paper) note of it, and check the next edge. When checking the second and later edges, <em>do not</em> try to keep the previous edges in place. It is not only extremely difficult, but also completely unnecessary. Once you know if an edge is good or bad, you know.</p>
-<p><strong>2. Turn bad edges into good edges.</strong> There are always an even number of bad edges. You can make them good in pairs. The simplest way is the 3-move sequence shown below. Just place two bad edges in the positions of the coloured edges, and do it.</p>
+<p><strong>1. Identify the bad edges.</strong> There are 7 edges not part of the 2×2×3. Pick any one of them, place it between its two centre pieces using only the 2 free layers. If it's twisted right, it's good. Otherwise it's bad. Make a note of it, and check the next edge. When checking later edges, do <strong>not</strong> try to keep the previous edges in place — once you know if an edge is good or bad, you know.</p>
+<p><strong>2. Turn bad edges into good edges.</strong> There are always an even number of bad edges. You can make them good in pairs using the 3-move sequence below.</p>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F R' F'|flags=showalg"></div>
-    <div class="cube-alg">F R' F'</div>
+    <div class="roofpig rp140" data-config="solved=UR-|colored=R U RU RF|tweaks=D:U|colors=R:w F:g U:o D:r|alg=F' U' F"></div>
+    <div class="cube-alg">F' U' F</div>
     <div class="cube-label">Basic edge fix</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R' F R|flags=showalg"></div>
-    <div class="cube-alg">R' F R</div>
-    <div class="cube-label">Mirror edge fix</div>
   </div>
 </div>
 
-<h4>Intermediate</h4>
-<p>Since we only want to know if an edge <em>would</em> be correctly twisted if it was placed in its correct location, we don't have to waste moves actually moving it there. It is easy to see which edges are bad without moving them.</p>
-<p>Let's call the colours of the two remaining centres A and B. Ignore everything except the stickers on the (unsolved) edges with colour A or B. There are four simple rules:</p>
+<h4>Intermediate — the 4 rules</h4>
+<p>Call the colours of the two remaining centres A and B (red and white in the illustrations). Ignore everything except the stickers on the unsolved edges with colour A or B:</p>
 
-<table>
+<table class="rules-table">
 <tr><th>Rule</th><th>Condition</th><th>Status</th></tr>
 <tr><td>1</td><td>An edge with an A colour sticker <em>next to</em> the A colour centre</td><td class="good">GOOD</td></tr>
 <tr><td>2</td><td>An edge with an A colour sticker <em>away from</em> the A colour centre</td><td class="bad">BAD</td></tr>
@@ -524,48 +348,40 @@ ROOFPIG_CONF_LLC    = "base=BASE|solved=U-/e|flags=showalg";
 <tr><td>4</td><td>An edge with a B colour sticker <em>away from</em> the A colour centre</td><td class="good">GOOD</td></tr>
 </table>
 
-<h4>Advanced</h4>
-<p>Why does the move sequence work? It's not just a "magic move". You can understand it. What happens is [1] one bad edge is flipped when moved to the other layer, [2] another bad edge replaces it, and is [3] (un)flipped when the first turn is reversed. Both edges get flipped in the process and so become good. Once you understand that, you can figure out several other moves that do the same thing.</p>
-
-<div class="cube-row">
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R' F R F'|flags=showalg"></div>
-    <div class="cube-alg">R' F R F'</div>
-    <div class="cube-label">Alternative fix</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F' R F R'|flags=showalg"></div>
-    <div class="cube-alg">F' R F R'</div>
-    <div class="cube-label">Another alternative</div>
-  </div>
-</div>
-
 <!-- ── 2 bad edges ─────────────────────────────────────────── -->
 <h3 id="eo2">All positions: 2 bad edges</h3>
 <div class="cube-grid">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F R' F'|flags=showalg"></div>
-    <div class="cube-alg">F R' F'</div><div class="cube-label">Adjacent (basic)</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Uf Rd| alg=U' F R' F'"></div>
+    <div class="cube-alg">U' F R' F'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R' F R|flags=showalg"></div>
-    <div class="cube-alg">R' F R</div><div class="cube-label">Adjacent (mirror)</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Ru Rb| alg=R B U B'"></div>
+    <div class="cube-alg">R B U B'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R2 F2 R2|flags=showalg"></div>
-    <div class="cube-alg">R2 F2 R2</div><div class="cube-label">Opposite in free layer</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Rf| alg=F' U' F"></div>
+    <div class="cube-alg">F' U' F</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F' R' F R|flags=showalg"></div>
-    <div class="cube-alg">F' R' F R</div><div class="cube-label">Both in block layer</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Rb| alg=R' B U B'"></div>
+    <div class="cube-alg">R' B U B'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U F R' F' U'|flags=showalg"></div>
-    <div class="cube-alg">U F R' F' U'</div><div class="cube-label">One up, one side</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Rb| alg=U R B U B'"></div>
+    <div class="cube-alg">U R B U B'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F R' F' R2 F R'|flags=showalg"></div>
-    <div class="cube-alg">F R' F' R2 F R'</div><div class="cube-label">Diagonal case</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Uf Rd| alg=F R' F'"></div>
+    <div class="cube-alg">F R' F'</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Rf| alg=U F' U' F"></div>
+    <div class="cube-alg">U F' U' F</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Uf Rb| alg=B U2 B'"></div>
+    <div class="cube-alg">B U2 B'</div>
   </div>
 </div>
 
@@ -573,28 +389,52 @@ ROOFPIG_CONF_LLC    = "base=BASE|solved=U-/e|flags=showalg";
 <h3 id="eo4">All positions: 4 bad edges</h3>
 <div class="cube-grid">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R2 F2 R2 F2|flags=showalg"></div>
-    <div class="cube-alg">R2 F2 R2 F2</div><div class="cube-label">All 4 in free layer</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Uf Rf Rb Rd| alg=F' U' F2 R2 F'"></div>
+    <div class="cube-alg">F' U' F2 R2 F'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F R' F' R2 F' R|flags=showalg"></div>
-    <div class="cube-alg">F R' F' R2 F' R</div><div class="cube-label">3 free + 1 block</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Uf Rf Rb| alg=F' U' F2 R F'"></div>
+    <div class="cube-alg">F' U' F2 R F'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R' F2 R2 F' R|flags=showalg"></div>
-    <div class="cube-alg">R' F2 R2 F' R</div><div class="cube-label">Adjacent free pair</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Uf Rf Rb| alg=R F' U' F2 R F'"></div>
+    <div class="cube-alg">R F' U' F2 R F'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F R' F' R F' R F|flags=showalg"></div>
-    <div class="cube-alg">F R' F' R F' R F</div><div class="cube-label">2 free + 2 block</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Uf Ub Rf Rd| alg=F' U2 F2 R' F'"></div>
+    <div class="cube-alg">F' U2 F2 R' F'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R' F R F' R' F R|flags=showalg"></div>
-    <div class="cube-alg">R' F R F' R' F R</div><div class="cube-label">Alternate 2+2</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Uf Ub Rd| alg=U2 F+B' R F'+B"></div>
+    <div class="cube-alg">U2 F+B' R F'+B</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F2 R2 F2 R2|flags=showalg"></div>
-    <div class="cube-alg">F2 R2 F2 R2</div><div class="cube-label">All 4 in block layer</div>
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Uf Ub Rf Rb| alg=F' U2 F2 R2 F'"></div>
+    <div class="cube-alg">F' U2 F2 R2 F'</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Uf Rf Rd| alg=F R' F2 U' F"></div>
+    <div class="cube-alg">F R' F2 U' F</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Uf Ul Rb| alg=F R F'+B U B'"></div>
+    <div class="cube-alg">F R F'+B U B'</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Uf Ub Rf Rd| alg=R' F' U2 F2 R' F'"></div>
+    <div class="cube-alg">R' F' U2 F2 R' F'</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F3| colored=U R Uf Ub Rf Rd| alg=F R' F2 U2 F"></div>
+    <div class="cube-alg">F R' F2 U2 F</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Uf Ub Rd| alg=F+B' R F'+B"></div>
+    <div class="cube-alg">F+B' R F'+B</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F3| colored=U R UR Ul Rb Rd| alg=F R' F'+B U' B'"></div>
+    <div class="cube-alg">F R' F'+B U' B'</div>
   </div>
 </div>
 
@@ -602,603 +442,620 @@ ROOFPIG_CONF_LLC    = "base=BASE|solved=U-/e|flags=showalg";
 <h3 id="eo6">All positions: 6 bad edges</h3>
 <div class="cube-grid">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R2 F2 R2 F R' F'|flags=showalg"></div>
-    <div class="cube-alg">R2 F2 R2 F R' F'</div><div class="cube-label">Common 6-bad</div>
+    <div class="roofpig rp140" data-config="solved=UR- | colored=u/me R RU Rb Rd| alg=F+B' R F'+B2 U B'"></div>
+    <div class="cube-alg">F+B' R F'+B2 U B'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F' R F R2 F2 R2|flags=showalg"></div>
-    <div class="cube-alg">F' R F R2 F2 R2</div><div class="cube-label">Mirror 6-bad</div>
+    <div class="roofpig rp140" data-config="solved=UR- | colored=u/me R RU Rb Rd| alg=R F+B' R F'+B2 U B'"></div>
+    <div class="cube-alg">R F+B' R F'+B2 U B'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R' F2 R F R' F|flags=showalg"></div>
-    <div class="cube-alg">R' F2 R F R' F</div><div class="cube-label">5 free + 1 block</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F R2 F' R' F R'|flags=showalg"></div>
-    <div class="cube-alg">F R2 F' R' F R'</div><div class="cube-label">Mirror 5+1</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R' F R F2 R' F R F'|flags=showalg"></div>
-    <div class="cube-alg">R' F R F2 R' F R F'</div><div class="cube-label">4 free + 2 block</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F2 R2 F2 R' F R|flags=showalg"></div>
-    <div class="cube-alg">F2 R2 F2 R' F R</div><div class="cube-label">All 6 in block layer</div>
+    <div class="roofpig rp140" data-config="solved=UR- | colored=u/me R RU Rb Rd| alg=R' F+B' R F'+B2 U B'"></div>
+    <div class="cube-alg">R' F+B' R F'+B2 U B'</div>
   </div>
 </div>
 </section>
 
 
-<!-- ════════════════════ STEP 4 ════════════════════════════════ -->
+<!-- ══ STEP 4 ════════════════════════════════════════════════════ -->
 <section class="page-section" id="step4">
 <h2 class="section-title"><span class="step-badge">STEP 4</span> Finish 2 Layers</h2>
 
-<p>Back to adding solved pieces! In step 4 we go from 7 to 12 solved pieces out of 20. This is clearly the hardest step. Not that it's all that hard — you could also say that the other steps are really easy!</p>
+<p>Back to adding solved pieces! In step 4 we go from 7 to 12 solved pieces out of 20. This is clearly the hardest step — though the other steps are really easy!</p>
+<p>You have only two sides you can turn, and halfway through the step you can't even do many of those moves, since they would destroy what you already built. Keep a firm grip around the 2×2×3 with one hand at all times.</p>
 
-<div class="warn">
-<strong>Key constraint:</strong> You can only turn the two free sides. And halfway through, you can't even do many of those moves, since they would destroy what you already built. Keep a firm grip around the 2×2×3 with one hand at all times.
-</div>
-
-<h3>Step 4a — First corner and its two edges</h3>
-<p>What you do in step 4 is pretty much the same thing that you do in step 1 and 2. But you have only two sides you can turn. From the piece perspective, the goal of step 4 is to add 2 corners and 3 edges to the 2×2×3 block, to make it into a 2×3×3 block (2 full layers).</p>
-<p>To do what you want, you first have to move pieces into a position where the desired turns can be made on the two free sides. Make sure to <strong>only</strong> turn the two unsolved sides!</p>
+<h3>Step 4a</h3>
+<p>Focus on getting one corner and its two adjacent edges in position. The same techniques you use in steps 1 and 2 can be used, but since you can only turn two sides, more manoeuvring is needed.</p>
 <p>Note that you now have two completed 2×2×3 blocks! Remember which of them you started with. If you accidentally start using the other, bad edges <strong>will</strong> reappear, and you have to go back to Step 3.</p>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=U R U' R' U' F' U F|flags=showalg"></div>
-    <div class="cube-alg">U R U' R' U' F' U F</div>
-    <div class="cube-label">Insert corner+edge (right)</div>
+    <div class="roofpig rp140" data-config="base=F4| setupmoves=R' U R U| alg=R' U R U' R U2 R U2 R2"></div>
+    <div class="cube-alg">R' U R U' R U2 R U2 R2</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=U' L' U L U F U' F'|flags=showalg"></div>
-    <div class="cube-alg">U' L' U L U F U' F'</div>
-    <div class="cube-label">Insert corner+edge (left)</div>
+    <div class="roofpig rp140" data-config="base=F4| setupmoves=R' U' R U R' U' R U R' U' R U| alg=U2 R U' R U' R2 U R U' R'"></div>
+    <div class="cube-alg">U2 R U' R U' R2 U R U' R'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U' R' U R U R'</div>
-    <div class="cube-label">Intermediate insert</div>
+    <div class="roofpig rp140" data-config="base=F4| setupmoves=R' U' R U2 R' U R U2| alg=R U' R' U2 R'"></div>
+    <div class="cube-alg">R U' R' U2 R'</div>
   </div>
 </div>
 
-<h3>Step 4b — Final two pieces</h3>
-<p>Putting the final 2 pieces in place without breaking anything is almost claustrophobic. Since you can't break up the 2×2×1 block you made in 4a, you have no choices in how to move the last layer. You must wiggle it back and forth, ¼ turn each time. So your only degree of freedom is to choose one of three possible turns with the other layer every other turn!</p>
-<p>The normal way of doing this is to join the two pieces in the upper layer, and then put the pair in place.</p>
+<h3>Step 4b</h3>
+<p>Putting the final 2 pieces in place without breaking anything is almost claustrophobic. You must wiggle the last layer back and forth, ¼ turn each time. Your only degree of freedom is to choose one of three possible turns with the other layer every other turn.</p>
+<p>The normal way is to join the two pieces in the upper layer, then put the pair in place (these are the continuations of the examples above):</p>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U R' U' R U R' U' R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U R' U' × 3</div>
-    <div class="cube-label">4b basic pair insert</div>
+    <div class="roofpig rp140" data-config="base=F4| alg=U' R' U' R"></div>
+    <div class="cube-alg">U' R' U' R</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F4| alg=U' R' U R U' R' U R U' R' U R"></div>
+    <div class="cube-alg">U' R' U R U' R' U R U' R' U R</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F4| alg=U2 R' U' R U2 R' U R"></div>
+    <div class="cube-alg">U2 R' U' R U2 R' U R</div>
   </div>
 </div>
 
 <h4>Intermediate</h4>
-<p>If you can place the final corner by itself, that is often good. There are easy ways to place the final edge, by very briefly breaking up our previous achievements. For the mirrored positions, almost identical sequences apply. Note that the second one is a variation of Allan™ from step 7!</p>
-
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U2 R U' R'|flags=showalg"></div>
-    <div class="cube-alg">R U' R' U2 R U' R'</div>
-    <div class="cube-label">Final edge placement</div>
+    <div class="roofpig rp140" data-config="base=F4| alg=R U R U R U' R' U' R'"></div>
+    <div class="cube-alg">R U R U R U' R' U' R'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U2 R' U2 R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U2 R' U2 R U R'</div>
-    <div class="cube-label">Allan™ variant in S4</div>
+    <div class="roofpig rp140" data-config="base=F4| alg=R U' F+B' R2 F'+B U' R'"></div>
+    <div class="cube-alg">R U' F+B' R2 F'+B U' R'</div>
+    <div class="cube-label">Allan™ variant</div>
   </div>
 </div>
 
 <h4>Advanced</h4>
-<p>The worst positions are when the last corner and edge are next to each other, but misaligned. You <strong>can</strong> untangle the pieces and put them back together using only the "beginner" moves. But it is often faster to use a Sune™. A reverse Sune™ fixes the case when the corner is twisted the other way.</p>
-
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U2 R' U' R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U2 R' U' R U R'</div>
-    <div class="cube-label">Sune™ in Step 4 (broken corner)</div>
+    <div class="roofpig rp140" data-config="base=F4| colored=U UB-| tweaks=BRD:UFR BR:UF| alg=F' U' F U' F' U2 F"></div>
+    <div class="cube-alg">F' U' F U' F' U2 F</div>
+    <div class="cube-label">Broken corner (Sune)</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">R U' R' U R U2 R'</div>
-    <div class="cube-label">Reverse Sune™ in Step 4</div>
+    <div class="roofpig rp140" data-config="base=F4| alg=U2 R' U' R2 U' R2 U' R' U' R"></div>
+    <div class="cube-alg">U2 R' U' R2 U' R2 U' R' U' R</div>
   </div>
 </div>
 
-<!-- ── Step 4b tricks ────────────────────────────────────────── -->
+<h4>A few less obvious 4b tricks</h4>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F4| alg=R2 U R2 U R2 U2 R2"></div>
+    <div class="cube-alg">R2 U R2 U R2 U2 R2</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F4| alg=R' U2 R2 U R2 U R"></div>
+    <div class="cube-alg">R' U2 R2 U R2 U R</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F4| alg=R2 U2 R' U' R U' R2"></div>
+    <div class="cube-alg">R2 U2 R' U' R U' R2</div>
+  </div>
+</div>
+
+<!-- ── Step 4b full index ──────────────────────────────────── -->
 <h3 id="s4b">Step 4b Tricks — Full Index</h3>
-<p>I had been doing step 4b for 20 years, but never systematically gone through every possible position. In the summer of 2001 I finally did the full research project; it was finished Jan 1 2003.</p>
 <p>After going through this methodically, I found better solutions for a third or so of the positions, and became much more consistent in picking the fastest solution. It's lowered my average with 1–2 moves.</p>
 
 <h4>a — Both pieces in top layer, not adjacent</h4>
 <div class="cube-grid">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U R'|flags=showalg"></div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U R'"></div>
     <div class="cube-alg">R U R'</div><div class="cube-label">a1</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U2 R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U' R' U² R U R'</div><div class="cube-label">a2</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U' R' U2 R U R'"></div>
+    <div class="cube-alg">R U' R' U2 R U R'</div><div class="cube-label">a2</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U2 R' U R U' R'|flags=showalg"></div>
-    <div class="cube-alg">R U² R' U R U' R'</div><div class="cube-label">a3</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U2 R' U R U' R'"></div>
+    <div class="cube-alg">R U2 R' U R U' R'</div><div class="cube-label">a3</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U' R U R'|flags=showalg"></div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U' R' U' R U R'"></div>
     <div class="cube-alg">R U' R' U' R U R'</div><div class="cube-label">a4</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U R' U R U' R'|flags=showalg"></div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U R' U R U' R'"></div>
     <div class="cube-alg">R U R' U R U' R'</div><div class="cube-label">a5</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U R' U' R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">R U R' U' R U² R'</div><div class="cube-label">a6</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U R' U' R U2 R'"></div>
+    <div class="cube-alg">R U R' U' R U2 R'</div><div class="cube-label">a6</div>
   </div>
 </div>
 
 <h4>b — Corner placed, three edge positions</h4>
 <div class="cube-grid">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=L F2 U F2 U' F2 L'|flags=showalg"></div>
-    <div class="cube-alg">L F² U F² U' F² L'</div><div class="cube-label">b1 — breaks block!</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=L F2 U FZ U' FZ L'"></div>
+    <div class="cube-alg">L F2 U FZ U' FZ L'</div><div class="cube-label">b1 — breaks 2×2×3!</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U R U' R'|flags=showalg"></div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U' R' U R U' R'"></div>
     <div class="cube-alg">R U' R' U R U' R'</div><div class="cube-label">b2</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U2 R' U2 R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U² R' U² R U R'</div><div class="cube-label">b3</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U2 R' UZ R U R'"></div>
+    <div class="cube-alg">R U2 R' UZ R U R'</div><div class="cube-label">b3</div>
   </div>
 </div>
 
 <h4>c — Pieces adjacent (harder)</h4>
 <div class="cube-grid">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U2 R' U' R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U² R' U' R U R'</div><div class="cube-label">c1 — AntiSune™</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U2 R' U' R U R'"></div>
+    <div class="cube-alg">R U2 R' U' R U R'</div><div class="cube-label">c1 — AntiSune™</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U R U R'|flags=showalg"></div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U' R' U R U R'"></div>
     <div class="cube-alg">R U' R' U R U R'</div><div class="cube-label">c2 — Sune™</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R' U2 R2 U R2 U R|flags=showalg"></div>
-    <div class="cube-alg">R' U² R² U R² U R</div><div class="cube-label">c3</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R' U2 R2 U R2 U R"></div>
+    <div class="cube-alg">R' U2 R2 U R2 U R</div><div class="cube-label">c3</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R' U2 R' U R' U' R U2 R|flags=showalg"></div>
-    <div class="cube-alg">R' U² R' U R' U' R U² R</div><div class="cube-label">c4</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R' U2 R' U R' U' R U2 R"></div>
+    <div class="cube-alg">R' U2 R' U R' U' R U2 R</div><div class="cube-label">c4</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R2 U2 R' U' R U' R2|flags=showalg"></div>
-    <div class="cube-alg">R² U² R' U' R U' R²</div><div class="cube-label">c5</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R2 U2 R' U' R U' R2"></div>
+    <div class="cube-alg">R2 U2 R' U' R U' R2</div><div class="cube-label">c5 — AntiSune™</div>
   </div>
 </div>
 
 <h4>d — Edge already in place</h4>
-<p>The edges are good as seen from <em>both</em> 2×2×3s. So you can and should use the other one when useful. Seen that way there are only 3 positions.</p>
 <div class="cube-grid">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R2 U R2 U R2 U2 R2|flags=showalg"></div>
-    <div class="cube-alg">R² U R² U R² U² R²</div><div class="cube-label">d1</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R2 U R2 U R2 U2 R2"></div>
+    <div class="cube-alg">R2 U R2 U R2 U2 R2</div><div class="cube-label">d1</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U' R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">R U' R' U' R U² R'</div><div class="cube-label">d2</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R U' R' U' R U2 R'"></div>
+    <div class="cube-alg">R U' R' U' R U2 R'</div><div class="cube-label">d2</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=F' U F U F' U2 F|flags=showalg"></div>
-    <div class="cube-alg">F' U F U F' U² F</div><div class="cube-label">d3</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=F' U F U F' U2 F"></div>
+    <div class="cube-alg">F' U F U F' U2 F</div><div class="cube-label">d3</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R2 U2 R' U' R U' R' U2 R'|flags=showalg"></div>
-    <div class="cube-alg">R² U² R' U' R U' R' U² R'</div><div class="cube-label">d4</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=R2 U2 R' U' R U' R' U2 R'"></div>
+    <div class="cube-alg">R2 U2 R' U' R U' R' U2 R'</div><div class="cube-label">d4</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=F2 U2 F U F' U F U2 F|flags=showalg"></div>
-    <div class="cube-alg">F² U² F U F' U F U² F</div><div class="cube-label">d5</div>
+    <div class="roofpig rp140" data-config="base=4B | alg=F2 U2 F U F' U F U2 F"></div>
+    <div class="cube-alg">F2 U2 F U F' U F U2 F</div><div class="cube-label">d5</div>
   </div>
 </div>
 </section>
 
 
-<!-- ════════════════════ STEP 5 ════════════════════════════════ -->
+<!-- ══ STEP 5 ════════════════════════════════════════════════════ -->
 <section class="page-section" id="step5">
 <h2 class="section-title"><span class="step-badge">STEP 5</span> Position the Corners</h2>
 
-<p>Now we're at the final layer. Here we do not think as much. We recognise patterns and apply rules.</p>
+<p>Now we're at the final layer. Here we do not think as much — we recognise patterns and apply rules.</p>
 
-<div class="warn"><strong>Common mistake:</strong> If the edges are not twisted correctly here, you have either not done step 3 correctly, or screwed up the edges by breaking the 2×2×3 in step 4.</div>
+<div class="ruta"><strong>Common mistake:</strong> If the edges are not twisted right here, you have either not done step 3 correctly, or screwed up the edges by breaking the 2×2×3 in step 4.</div>
 
-<p>When starting this step, you should have only one layer remain unsolved, and the edges in it already correctly twisted ("forming a cross"). In this step we will <strong>place</strong> the top corners correctly, nothing else. The corners normally look pretty unsolved after completing step 5 — you have to inspect them to know they're right.</p>
+<p>In this step we will <strong>place</strong> the top corners correctly, nothing else. The corners normally look pretty unsolved after completing step 5 — you have to inspect them to know they're right.</p>
 <p>To do this we need a tool that moves the top corners without twisting the top edges. This tool is <strong>Niklas™</strong>.</p>
 
 <div class="named-move">
   <div class="nm-title">Niklas™</div>
-  <div class="nm-alg">R U' L' U R' U' L U</div>
-  <div class="nm-note">Swaps the two corners opposite the layer where the first move is made. 7-turn sequence. Named by Lars Petrus.</div>
+  <div class="nm-alg">L U' R' U L' U' R U2</div>
+  <div class="nm-note">7-turn sequence. Swaps the two corners opposite the layer where the first move is made. (Turn 8 is just alignment.)</div>
 </div>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U' L' U R' U' L U|flags=showalg"></div>
-    <div class="cube-alg">R U' L' U R' U' L U</div>
+    <div class="roofpig rp140" data-config="base=F5|solved=U-/ec|colored=*/m u/e|tweaks=FR:UFr FL:UFl LB:ULb RB:URb|alg=L U' R' U L' U' R U2"></div>
+    <div class="cube-alg">L U' R' U L' U' R U2</div>
     <div class="cube-label">Niklas™</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=L' U R U' L U R' U'|flags=showalg"></div>
-    <div class="cube-alg">L' U R U' L U R' U'</div>
-    <div class="cube-label">Niklas™ Mirror</div>
-  </div>
 </div>
 
-<h4>Beginner — odds and procedure</h4>
+<h4>Beginner — odds</h4>
 <ul>
-  <li><strong>1/6</strong> of the time, the corners will already be correct. Go to step 6.</li>
-  <li><strong>1/6</strong> of the time, two corners diagonally opposed will have switched. Two Niklas™ moves needed.</li>
-  <li><strong>4/6</strong> of the time, two adjacent corners will have switched. One Niklas™.</li>
+  <li>1/6 of the time, the corners will already be correct — go to Step 6.</li>
+  <li>1/6 of the time, two diagonally opposite corners have switched — two Niklas™ needed.</li>
+  <li>4/6 of the time, two adjacent corners have switched — one Niklas™.</li>
 </ul>
-<p>Turn the top layer until two corners are in correct positions. The two others are either correct or need swapping. Niklas™ will swap the two corners opposite the layer where you make its first move.</p>
 
 <h4>Intermediate</h4>
-<p>Find two adjacent corners with the same (non-top) colour, and move them to the side of that colour. If the corners are correct, all 4 will be in place. If adjacent corners are switched, two will be correct, and you can see which ones. If diagonal corners are switched, all four corners will be placed wrong.</p>
-<p>Here is a useful move sequence that directly switches two corners diagonally:</p>
-
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R' F R' B2 R F' R' B2 R2|flags=showalg"></div>
-    <div class="cube-alg">R' F R' B2 R F' R' B2 R2</div>
+    <div class="roofpig rp140" data-config="base=F5|alg=F U2 F' B' U F U' B UZ F'"></div>
+    <div class="cube-alg">F U2 F' B' U F U' B UZ F'</div>
     <div class="cube-label">Direct diagonal swap (Eve)</div>
   </div>
 </div>
 
 <h4>Advanced</h4>
-<p>Note that Niklas™ twists the corners in the same way as Sune™ does, so the same "target" rules apply. A Niklas™ that hits a target starts with the same turn as a Sune™ that hits the same target. About half the time you can avoid one Sune™ in step 6 this way.</p>
-<p>For the advanced cuber, steps 5–7 meld together to one single step of dozens or even hundreds of special cases. See the <a href="#ymain">Full Step 5+6 Index</a>.</p>
+<p>Note that Niklas™ twists the corners in the same way as Sune™ does, so the same "target" rules apply. About half the time you can avoid one Sune™ in step 6 by choosing the right Niklas™ here.</p>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F5|alg=L+R' U' R U L' U' R' U R"></div>
+    <div class="cube-alg">L+R' U' R U L' U' R' U R</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F5|alg=R' U' R U L U' R' U R+L'"></div>
+    <div class="cube-alg">R' U' R U L U' R' U R+L'</div>
+  </div>
+</div>
 </section>
 
 
-<!-- ════════════════════ STEP 6 ════════════════════════════════ -->
+<!-- ══ STEP 6 ════════════════════════════════════════════════════ -->
 <section class="page-section" id="step6">
 <h2 class="section-title"><span class="step-badge">STEP 6</span> Twist the Corners</h2>
 
-<p>So far we have the top edges <strong>twisted</strong> right, and the top corners <strong>placed</strong> right. The next step is <strong>twisting</strong> the corners right. This can be done using only one simple move sequence: <strong>Sune™</strong>. It twists three of the four top corners. It also moves top edges, but we don't care about that yet.</p>
-<p>Step 6 can always be done with 2 Sunes or less. You <strong>do need</strong> to learn Sune™ to use this method.</p>
-
-<div class="named-move">
-  <div class="nm-title">Sune™</div>
-  <div class="nm-alg">R U R' U R U2 R'</div>
-  <div class="nm-note">Twists three of the four top corners. The "target" is the corner sticker on the opposite side from the first turn, on the side of the corner moving up. You MUST learn this.</div>
-</div>
-
-<div class="named-move">
-  <div class="nm-title">Left Sune™ (Mirror)</div>
-  <div class="nm-alg">L' U' L U' L' U2 L</div>
-  <div class="nm-note">Mirror version. Same moves, just "mirrored". You need both.</div>
-</div>
+<p>So far we have the top edges <strong>twisted</strong> right, and the top corners <strong>placed</strong> right. The next step is <strong>twisting</strong> the corners right. This can be done using only one simple move sequence — <strong>Sune™</strong>. It twists three of the four top corners. Step 6 can always be done with 2 Sunes or less.</p>
+<p>The two animations show both "mirrored" versions of Sune™. Note the big <strong>X</strong> — that is the <strong>target</strong> sticker of the Sune™.</p>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U R' U R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">R U R' U R U2 R'</div>
+    <div class="roofpig rp140" data-config="base=F6| colored=u| tweaks=X:Bul| alg=B U B' U B UZ B'"></div>
+    <div class="cube-alg">B U B' U B U2 B'</div>
     <div class="cube-label">Sune™</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=L' U' L U' L' U2 L|flags=showalg"></div>
+    <div class="roofpig rp140" data-config="base=F6| colored=u| tweaks=X:Lub| alg=L' U' L U' L' U2 L"></div>
     <div class="cube-alg">L' U' L U' L' U2 L</div>
     <div class="cube-label">Left Sune™</div>
   </div>
 </div>
 
-<h4>The target of Sune™</h4>
-<p>The target of a Sune™ is the corner sticker on the opposite side from the first turn, on the side of the corner moving up. Look for where the black X's are in the animations in relation to the first move.</p>
+<p>The target of a Sune™ is the corner sticker on the opposite side from the first turn, on the side of the corner moving <em>up</em>. Look for where the black X's are in relation to the first move.</p>
 
-<h4>The four rules (assuming, say, yellow top layer)</h4>
-<ul>
-  <li><strong>Rule 0 — No correct corners:</strong> Target one of the four yellow stickers. After Sune™ there will be one correct corner. Use Rule 1.</li>
-  <li><strong>Rule 1 — One correct corner:</strong> Target as shown. This solves the corners and completes step 6.</li>
-  <li><strong>Rule 2 — Two correct corners:</strong> Target one of the two non-yellow stickers of a twisted corner. After Sune™ there will be one correct corner. Use Rule 1.</li>
-  <li><strong>Rule 3 — Three correct corners:</strong> Impossible.</li>
-  <li><strong>Rule 4 — Four correct corners:</strong> Already solved — go to Step 7.</li>
-</ul>
-
-<h4>Intermediate</h4>
-<p>Doing Sune™ backwards (AntiSune) twists corners the same way as Sune™, but moves the edges differently. <strong>Note the target!</strong> You can hit a target with either a Sune™ or an AntiSune, and often you can skip step 7 by choosing right.</p>
-
-<div class="named-move">
-  <div class="nm-title">AntiSune™</div>
-  <div class="nm-alg">R U2 R' U' R U' R'</div>
-  <div class="nm-note">Sune backwards. Twists corners the same way but moves edges differently. Use it to try to skip Step 7.</div>
-</div>
-
-<div class="named-move">
-  <div class="nm-title">Bruno™</div>
-  <div class="nm-alg">R U R' U R U2 R' U2 R U R' U R U2 R'</div>
-  <div class="nm-note">Double Sune — simple and fast for that corner look.</div>
-</div>
+<h4>The rules (assuming a red top layer)</h4>
+<p><strong>Rule 0:</strong> With <strong>no</strong> correct corners, target one of the four red stickers. After the Sune™ there will be one correct corner. Use Rule 1.</p>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U2 R' U' R U' R'|flags=showalg"></div>
-    <div class="cube-alg">R U2 R' U' R U' R'</div>
+    <div class="roofpig rp140" data-config="base=F6| tweaks=U:Fur U:Luf U:Rub U:Ulb X:Rub x:Fur x:Luf x:Ubl| alg=R U R' U R U2 R'"></div>
+    <div class="cube-alg">R U R' U R U2 R'</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F6| tweaks=U:Ufr U:Ful U:Bru U:Lub X:Lub x:Ful x:Ufr x:Bru| alg=L' U' L U' L' U2 L"></div>
+    <div class="cube-alg">L' U' L U' L' U2 L</div>
+  </div>
+</div>
+<div class="note">The black X is the target for the shown Sune™. The white X's are the other possible targets.</div>
+
+<p><strong>Rule 1:</strong> With <strong>one</strong> correct corner, target as shown. This solves the corners and completes step 6!</p>
+<p><strong>Rule 2:</strong> With <strong>two</strong> correct corners, target one of the two non-red stickers of a twisted corner. After the Sune™ there will be one correct corner. Use Rule 1.</p>
+
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F6| tweaks=U:Ulb U:Luf U:Fur U:Rub x:Lub X:Ruf| alg=R' U' R U' R' U2 R"></div>
+    <div class="cube-alg">R' U' R U' R' U2 R</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F6| tweaks=U:Urb U:Ruf U:Ful U:Lub x:Rub X:Bul| alg=B U B' U B U2 B'"></div>
+    <div class="cube-alg">B U B' U B U2 B'</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F6| tweaks=U:Ruf U:Ful U:Ulb U:Bur X:Rub x:Bul| alg=R U R' U R U2 R'"></div>
+    <div class="cube-alg">R U R' U R U2 R'</div>
+  </div>
+</div>
+<div class="note">The black X is the target for the shown Sune™. The white X's are the other possible targets.</div>
+
+<p><strong>Rule 3:</strong> Three correct corners is impossible.</p>
+<p><strong>Rule 4:</strong> Four correct corners — already solved, go to Step 7.</p>
+
+<h4>Intermediate</h4>
+<p>Doing Sune™ backwards (AntiSune) twists corners the same way as Sune™, but moves the edges differently. You can hit a target with either a Sune™ or an AntiSune, and often you can skip step 7 by choosing right.</p>
+
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F6| colored=u| tweaks=X:Bul| alg=R' UZ R U R' U R"></div>
+    <div class="cube-alg">R' U2 R U R' U R</div>
     <div class="cube-label">AntiSune™</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U R' U R U2 R' U2 R U R' U R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">Bruno™ (Double Sune)</div>
+    <div class="roofpig rp140" data-config="base=F6| colored=u| tweaks=| alg=R U R' U R U' R' U R UZ R'"></div>
+    <div class="cube-alg">R U R' U R U' R' U R U2 R'</div>
+    <div class="cube-label">Double Sune™</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F6| colored=u| tweaks=| alg=R U2 RZ U' R2 U' RZ U2 R"></div>
+    <div class="cube-alg">R U2 R2 U' R2 U' R2 U2 R</div>
     <div class="cube-label">Bruno™</div>
   </div>
 </div>
 
-<h4>Rune™ (for Step 6+7 advanced)</h4>
-<div class="named-move">
-  <div class="nm-title">Rune™</div>
-  <div class="nm-alg">R U2 R2 U' R2 U' R2 U2 R</div>
-  <div class="nm-note">Used in the Step 6+7 index (B2). Efficient for a specific corner+edge combination.</div>
-</div>
-
-<h4>Benny™</h4>
-<div class="named-move">
-  <div class="nm-title">Benny™</div>
-  <div class="nm-alg">R U R' U' R U' R' U2 R U2 R' U' R U R'</div>
-  <div class="nm-note">Used in the Step 6+7 index (B9). Complex but very efficient for a specific case.</div>
-</div>
-
-<p>There are only 49 possible positions in Step 6. Here are solutions to every single one — see the <a href="#xmain">Full Step 6+7 Index</a>.</p>
+<p>There are only 49 possible positions in Step 6. See the <a href="#xmain">Step 6+7 index</a> for solutions to every single one.</p>
 </section>
 
 
-<!-- ════════════════════ STEP 7 ════════════════════════════════ -->
+<!-- ══ STEP 7 ════════════════════════════════════════════════════ -->
 <section class="page-section" id="step7">
 <h2 class="section-title"><span class="step-badge">STEP 7</span> Position the Edges</h2>
 
 <p>Only 12 possible positions remain. 1 of them is the solved case. Here is how to solve the 11 others:</p>
 
 <h4>Beginner</h4>
-<p>8 of the 12 have this position with three permuted edges (or its mirror image). You have to learn the solution below (and its mirror image). For historical reasons, it is called <strong>Allan™</strong>.</p>
-<p>If you get one of the other positions, you can just do Allan™, and you will be in a "single Allan™" position.</p>
+<p>8 of the 12 have three permuted edges (or its mirror image). You have to learn Allan™ (and its mirror image).</p>
 
 <div class="named-move">
   <div class="nm-title">Allan™</div>
-  <div class="nm-alg">R2 U F B' R2 F' B U R2</div>
-  <div class="nm-note">Cycles three top edges clockwise. The main Step 7 sequence. 8/12 frequency (or its mirror).</div>
+  <div class="nm-alg">F2 U' L+R' F2 L'+R U' F2</div>
+  <div class="nm-note">Cycles three top edges. 8/12 frequency. If you get one of the other positions, just do Allan™ and you will be in a "single Allan™" position.</div>
 </div>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLE|alg=R2 U F B' R2 F' B U R2|flags=showalg"></div>
-    <div class="cube-alg">R2 U F B' R2 F' B U R2</div>
-    <div class="cube-label">Allan™ — 3-edge cycle CW</div>
+    <div class="roofpig rp140" data-config="base=F7 | alg=F2 U' L+R' F2 L'+R U' F2"></div>
+    <div class="cube-alg">F2 U' L+R' F2 L'+R U' F2</div>
+    <div class="cube-label">Allan™</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLE|alg=R2 U' F B' R2 F' B U' R2|flags=showalg"></div>
-    <div class="cube-alg">R2 U' F B' R2 F' B U' R2</div>
-    <div class="cube-label">Allan™ Mirror — CCW</div>
+    <div class="roofpig rp140" data-config="base=F7 | alg=L' U' L U' L' U2 L F U F' U F UZ F'"></div>
+    <div class="cube-alg">L' U' L U' L' U2 L F U F' U F UZ F'</div>
+    <div class="cube-label">Allan™ via 2 Sunes™</div>
   </div>
 </div>
-<p>An Allan™ can also be done using only 2 Sunes: <code>R U R' U R U2 R'</code> then <code>L' U' L U' L' U2 L</code>, if you really don't want to learn many move sequences.</p>
 
 <h4>Intermediate</h4>
-<p>There are only 2 other possible cases. Learn them by heart and learn to do them <strong>fast</strong>. You will always need them!</p>
+<p>There are only 2 other possible cases. Learn them by heart and learn to do them <strong>fast</strong>.</p>
 
 <div class="named-move">
   <div class="nm-title">Bert™ (H-perm)</div>
-  <div class="nm-alg">R2 U2 R2 U2 R2 U2</div>
-  <div class="nm-note">Swaps two pairs of opposite edges. Occurs 2/12 of the time.</div>
+  <div class="nm-alg">FZ B2 D R2 FZ B2 L2 FZ B2 D' FZ B2</div>
+  <div class="nm-note">Swaps two pairs of opposite edges. 2/12 frequency.</div>
 </div>
 
 <div class="named-move">
   <div class="nm-title">Arne™ (Z-perm)</div>
-  <div class="nm-alg">R U' R U R U R U' R' U' R2</div>
-  <div class="nm-note">Swaps two pairs of adjacent edges. Occurs 1/12 of the time.</div>
+  <div class="nm-alg">R2 FZ B2 L2 D L2 B2 FZ R2</div>
+  <div class="nm-note">Swaps two pairs of adjacent edges. 1/12 frequency.</div>
 </div>
 
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLE|alg=R2 U2 R2 U2 R2 U2|flags=showalg"></div>
-    <div class="cube-alg">R2 U2 R2 U2 R2 U2</div>
-    <div class="cube-label">Bert™ (H-perm) — 2/12</div>
+    <div class="roofpig rp140" data-config="base=F7 | alg=FZ B2 D R2 FZ B2 L2 FZ B2 D' FZ B2"></div>
+    <div class="cube-alg">FZ B2 D R2 FZ B2 L2 FZ B2 D' FZ B2</div>
+    <div class="cube-label">Bert™ — 2/12</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLE|alg=R U' R U R U R U' R' U' R2|flags=showalg"></div>
-    <div class="cube-alg">R U' R U R U R U' R' U' R2</div>
-    <div class="cube-label">Arne™ (Z-perm) — 1/12</div>
+    <div class="roofpig rp140" data-config="base=F7 | alg=R2 FZ B2 L2 D L2 B2 FZ R2"></div>
+    <div class="cube-alg">R2 FZ B2 L2 D L2 B2 FZ R2</div>
+    <div class="cube-label">Arne™ — 1/12</div>
   </div>
 </div>
 
-<h4>Advanced</h4>
-<p>2003 World Champion Dan Knights favours this solution to Bert™. It's a little less straightforward, but can be done in just 4 movements:</p>
-<div class="alg-box">
-  <span class="alg-label">Bert™ (Knights)</span>
-  <span class="alg-notation">M2 U M2 U2 M2 U M2</span>
-  <span class="alg-desc">Faster 4-movement version. Dan Knights explains on video at lar5.com/cube/ZPermfast.mov</span>
-</div>
-<div class="alg-box">
-  <span class="alg-label">Arne™ Alt 1</span>
-  <span class="alg-notation">M' U M2 U M2 U M' U2 M2</span>
-  <span class="alg-desc">Alternative Arne solution</span>
-</div>
-<div class="alg-box">
-  <span class="alg-label">Arne™ Alt 2 (no grip shift)</span>
-  <span class="alg-notation">M2 U M2 U M' U2 M2 U2 M'</span>
-  <span class="alg-desc">Can be done without shifting your grip. Thanks to Doug Li.</span>
+<h4>Advanced — alternative solutions</h4>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F7 | alg=R B' R' B F R' F+B' R' B R F2"></div>
+    <div class="cube-alg">R B' R' B F R' F+B' R' B R F2</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F7 | alg=R2 U2 R2 U2 R2 U R2 U2 R2 U2 R2"></div>
+    <div class="cube-alg">R2 U2 R2 U2 R2 U R2 U2 R2 U2 R2</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F7 | alg=F+B U2 B'+F' R'+L' U2 L+R"></div>
+    <div class="cube-alg">F+B U2 B'+F' R'+L' U2 L+R</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp140" data-config="base=F7 | alg=R2+LZ+R<< D R2+LZ+R<< U2 R2+LZ+R<< D R2+LZ+R<<"></div>
+    <div class="cube-alg">R2+LZ+R&lt;&lt; D … (Dan Knights)</div>
+    <div class="cube-label">4-movement Bert™</div>
+  </div>
 </div>
 </section>
 
 
-<!-- ════════════════════ BLOCK BUILDING ═══════════════════════ -->
+<!-- ══ BLOCK BUILDING ════════════════════════════════════════════ -->
 <section class="page-section" id="blox">
 <h2 class="section-title">Block Building Patterns</h2>
 
-<p>The core of this method is to build blocks. It is what steps 1, 2 and 4 are all about. This can be done intuitively, but with experience you will pick up some patterns you can immediately recognise, which is one of the keys to doing this fast.</p>
+<p>The core of this method is to build blocks. It is what steps 1, 2 and 4 are all about. With experience you will pick up some patterns you can immediately recognise, which is one of <strong>the</strong> keys to doing this fast.</p>
 
 <h3>"Simple join"</h3>
-<p>This is trivial in a way, but I don't want to overlook it since it is really the one I use the most. It's the second thing I start looking for on a mixed cube, if there are no already formed pairs. It simply consists of finding a corner and edge that are one move away from forming a pair.</p>
+<p>The one I use the most. It simply consists of finding a corner and edge that are one move away from forming a pair.</p>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U R U' R'|flags=showalg"></div>
-    <div class="cube-alg">U R U' R'</div><div class="cube-label">Simple join</div>
+    <div class="roofpig rp130" data-config="colors=U:r F:b R:w|colored=UFR UR|alg=F"></div>
+    <div class="cube-alg">F</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U' L' U L|flags=showalg"></div>
-    <div class="cube-alg">U' L' U L</div><div class="cube-label">Simple join (mirror)</div>
+    <div class="roofpig rp130" data-config="colors=U:r F:b R:w|colored=UFR UR|alg=F2"></div>
+    <div class="cube-alg">F2</div>
   </div>
 </div>
 
 <h3>"Double join"</h3>
-<p>Also very basic and very useful. It doesn't "just happen" as much as a simple join, but it's the most common second goal once you've formed a pair. Since we're building a 2×2×1 block a centre needs to be part of it, as well as the corner and 2 edges.</p>
+<p>Very basic and very useful. The most common second goal once you've formed a pair. Since we're building a 2×2×1 block, a centre needs to be part of it as well as the corner and 2 edges.</p>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U R2 U' L' U R2 U' L|flags=showalg"></div>
-    <div class="cube-alg">U R2 U' L' U R2 U' L</div><div class="cube-label">Double join example</div>
+    <div class="roofpig rp130" data-config="colors=U:o F:y R:g|colored=UFR UR UF U|alg=F"></div>
+    <div class="cube-alg">F</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp130" data-config="colors=U:o F:y R:g|colored=UFR UR UF U|alg=F2"></div>
+    <div class="cube-alg">F2</div>
   </div>
 </div>
 
 <h3>"Swing"</h3>
-<p>Brilliant when you can get it. That's pretty often for S1, and occasionally in S2. The first move is just a setup move for a double join in the second move. Both the lone edge and the pair can be in other positions.</p>
+<p>Brilliant when you can get it — pretty often for Step 1, occasionally in Step 2. The first move is just a setup move for a double join in the second move.</p>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=U R2 U'|flags=showalg"></div>
-    <div class="cube-alg">U R2 U'</div><div class="cube-label">Swing (example 1)</div>
+    <div class="roofpig rp130" data-config="colors=U:g D:b F:o R:w|colored=U DFR DR DF D|alg=R2 F2"></div>
+    <div class="cube-alg">R2 F2</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F' U2 F|flags=showalg"></div>
-    <div class="cube-alg">F' U2 F</div><div class="cube-label">Swing (example 2)</div>
+    <div class="roofpig rp130" data-config="colors=U:g D:b F:o R:w|colored=U DFR DR DF D|alg=R' F2"></div>
+    <div class="cube-alg">R' F2</div>
   </div>
 </div>
 
 <h3>"Double swing"</h3>
-<p>A very good Step 1 start, and it sometimes happens in Step 2 as well. Again, a two-move setup for a double join. While it is fairly rare in this pure form, you can quite often get there with one or two setup moves. Since it's symmetric, you can do it in two ways.</p>
+<p>A very good Step 1 start. A two-move setup for a double join. Since it's symmetric, you can do it in two ways.</p>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R2 U2 R2|flags=showalg"></div>
-    <div class="cube-alg">R2 U2 R2</div><div class="cube-label">Double swing (ver 1)</div>
+    <div class="roofpig rp130" data-config="colors=U:r B:w L:b|colored=UBL UL UB U|alg=L2 F2 L2"></div>
+    <div class="cube-alg">L2 F2 L2</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F2 U2 F2|flags=showalg"></div>
-    <div class="cube-alg">F2 U2 F2</div><div class="cube-label">Double swing (ver 2)</div>
+    <div class="roofpig rp130" data-config="colors=U:r B:w L:b|colored=UBL UL UB U|alg=B2 R2 B2"></div>
+    <div class="cube-alg">B2 R2 B2</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp100" data-config="colors=U:r B:w L:b|colored=UBL UL UB U|alg=L F2 L2"></div>
+    <div class="cube-alg">L F2 L2</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp100" data-config="colors=U:r B:w L:b|colored=UBL UL UB U|alg=R' L2 F2 L2"></div>
+    <div class="cube-alg">R' L2 F2 L2</div>
   </div>
 </div>
 
 <h3>"Roundabout"</h3>
-<p>This is almost only useful as a start of Step 1. If there is no corner/edge pair already formed, there is usually one of these available to form one in 3 moves. While useful in themselves, they get really interesting if you can "pick up" one of the other edges on the way.</p>
+<p>Almost only useful as a start of Step 1. If there is no corner/edge pair already formed, there is usually one of these available to form one in 3 moves.</p>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U R'</div><div class="cube-label">Roundabout (example 1)</div>
+    <div class="roofpig rp130" data-config="colors=U:r R:w B:b|colored=UR UBR|alg=F' L' B'"></div>
+    <div class="cube-alg">F' L' B'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=F' U' F|flags=showalg"></div>
-    <div class="cube-alg">F' U' F</div><div class="cube-label">Roundabout (example 2)</div>
+    <div class="roofpig rp100" data-config="colors=U:y B:r R:g|colored=UR UBR UB U|alg=F' L' B'"></div>
+    <div class="cube-alg">F' L' B'</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S3|alg=R U F' U' F R'|flags=showalg"></div>
-    <div class="cube-alg">R U F' U' F R'</div><div class="cube-label">Roundabout + pickup</div>
+    <div class="roofpig rp100" data-config="colors=U:y B:r R:g|colored=UR UBR R BR|alg=F' L' B'"></div>
+    <div class="cube-alg">F' L' B'</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp100" data-config="colors=U:y B:r R:g|colored=UR UBR UB U|alg=L' F' L' B'"></div>
+    <div class="cube-alg">L' F' L' B'</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp100" data-config="colors=U:y B:r R:g|colored=UR UBR R BR|alg=B F' L' B'"></div>
+    <div class="cube-alg">B F' L' B'</div>
   </div>
 </div>
 
 <h3>"Parallel roundabout"</h3>
-<p>This one is not very common, but it is very cool. In Step 4 the roundabout becomes a fairly tortured sequence to the left. Sometimes I have no better ideas and do it just to make something happen. But occasionally you'll get the situation on the right, which is in fact two roundabout situations at the same time, and the same sequence solves both. Hehe!!</p>
+<p>Not very common, but very cool. Occasionally you'll get two roundabout situations at the same time, and the same sequence solves both!</p>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U R' U R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">R U R' U R U2 R'</div><div class="cube-label">Parallel roundabout S4</div>
+    <div class="roofpig rp130" data-config="colors=U:g B:r R:y|solved=UR-|colored=UBR UB|alg=R U R U R"></div>
+    <div class="cube-alg">R U R U R</div>
+  </div>
+  <div class="cube-widget">
+    <div class="roofpig rp130" data-config="colors=U:g F:y R:r|solved=UR-|colored=UFR UR FR R|alg=R U R U R U"></div>
+    <div class="cube-alg">R U R U R U</div>
   </div>
 </div>
 
 <h3>"Broken corner"</h3>
-<p>One of my favourites in Step 4, but it can of course occur earlier also. This is just something you learn to recognise. But in the position <em>after</em> the first move, you should be able to "smell" that the next move sets up the corner for two simple joins that adds up to a double join.</p>
+<p>One of my favourites in Step 4. After the first move, the next move sets up the corner for two simple joins that add up to a double join.</p>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U' R' U R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U' R' U R U R'</div><div class="cube-label">Broken corner (ver 1)</div>
+    <div class="roofpig rp130" data-config="colors=U:g B:w R:o|solved=UR-|colored=UBR UB UR U|alg=U R U' R"></div>
+    <div class="cube-alg">U R U' R</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R U2 R' U R U R'|flags=showalg"></div>
-    <div class="cube-alg">R U2 R' U R U R'</div><div class="cube-label">Broken corner (ver 2)</div>
+    <div class="roofpig rp130" data-config="colors=U:g B:w R:o|solved=UR-|colored=UBR UB UR U|alg=U R2 U' R"></div>
+    <div class="cube-alg">U R2 U' R</div>
   </div>
 </div>
 
 <h3>"Pillar"</h3>
-<p>This Step 4 trick is fairly common, and very easy to spot. This is again a setup for a double join.</p>
+<p>Fairly common in Step 4, very easy to spot. Again a setup for a double join.</p>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R2 U R2|flags=showalg"></div>
-    <div class="cube-alg">R2 U R2</div><div class="cube-label">Pillar</div>
+    <div class="roofpig rp130" data-config="colors=U:o F:b R:w|solved=UR-|colored=UFR UR FR R|alg=R U' R U"></div>
+    <div class="cube-alg">R U' R U</div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=S4|alg=R2 U' R2|flags=showalg"></div>
-    <div class="cube-alg">R2 U' R2</div><div class="cube-label">Pillar (mirror)</div>
+    <div class="roofpig rp130" data-config="colors=U:o F:b R:w|solved=UR-|colored=UFR UR FR R|alg=R' U' R U"></div>
+    <div class="cube-alg">R' U' R U</div>
   </div>
 </div>
 </section>
 
 
-<!-- ════════════════════ STEP 5+6 FULL INDEX ══════════════════ -->
+<!-- ══ STEP 5+6 INDEX ════════════════════════════════════════════ -->
 <section class="page-section" id="ymain">
-<h2 class="section-title">Step 5+6 Full Index</h2>
+<h2 class="section-title">Step 5+6 Final Layer Index</h2>
 
-<p>This is a complete index of all possible <strong>corner</strong> positions in step 5, and some good ways to solve them. It does not deal with edge issues at all, so after this you are left with step 7.</p>
+<p>A complete index of all possible <strong>corner</strong> positions in step 5, and some good ways to solve them. It does not deal with edge issues at all, so after this you are left with step 7.</p>
+<p>There are 27 different ways the corners can be arranged, and for each there are 6 different corner placements, giving 162 configurations in theory. Due to symmetries, there are really just 32 distinct ones. The 7 "corner looks" are named A–G. The sub-pages yA through yG cover every case.</p>
+<p>Apart from Niklas, Sune etc from the main tutorial, 8 sequences are named for use in this index. <strong>Clix, Evelyn and Eve are probably the most important.</strong></p>
 
-<p>The 7 possible "corner looks" are named A–G based on how the top-colour stickers of the corners form patterns. There are 27 different ways that the corners can be arranged (3×3×3 = 27, since corners 1, 2 &amp; 3 can each show the top colour three ways, and the 4th is determined). For each of those, there are 6 different ways the corners can be <strong>placed</strong>, giving 162 configurations in theory. Due to symmetries, there are really just 32 distinct ones.</p>
-
-<p>Of my two indexes, <strong>Step 5+6 is more important to know than Step 6+7</strong>. So start here. Apart from Niklas, Sune etc from the main tutorial, 8 sequences are named for use in this index. Most solutions are combinations of the ~15 named sequences. <strong>Clix (Cx), Evelyn (Ey), and Eve (EE) are probably the most important.</strong></p>
-
-<h4>Key named sequences for this index</h4>
-<div class="cube-grid">
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U2 R' U' R U' R' L' U2 L U L' U L|flags=showalg"></div>
-    <div class="cube-alg">Buffy (By)</div><div class="cube-label">By — Buffy</div>
+<div class="ixrow">
+  <div class="ixcell">
+    <b>By — Buffy</b>
+    <div class="roofpig rpidx" data-config="base=Y | alg=L' UZ L U2 R U' L' U L+R'"></div>
+    <div class="cube-alg">L' UZ L U2 R U' L' U L+R'</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R' U2 R U R' U R L U2 L' U' L U' L'|flags=showalg"></div>
-    <div class="cube-alg">AntiBuffy (Bz)</div><div class="cube-label">Bz — AntiBuffy</div>
+  <div class="ixcell">
+    <b>Bz — AntiBuffy</b>
+    <div class="roofpig rpidx" data-config="base=Y | alg=L'+R U R' U' L U2 R UZ R'"></div>
+    <div class="cube-alg">L'+R U R' U' L U2 R UZ R'</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R' F R' B2 R F' R' B2 R2|flags=showalg"></div>
-    <div class="cube-alg">Bob (BB)</div><div class="cube-label">BB — Bob</div>
+  <div class="ixcell">
+    <b>BB — Bob</b>
+    <div class="roofpig rpidx" data-config="base=Y | alg=R' U2 L U' R U L' U R' U R"></div>
+    <div class="cube-alg">R' U2 L U' R U L' U R' U R</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U R' U R U2 R' U' R U' R' U2 L' R U R' U' L|flags=showalg"></div>
-    <div class="cube-alg">Clix (Cx)</div><div class="cube-label">Cx — Clix</div>
+  <div class="ixcell">
+    <b>Cx — Clix</b>
+    <div class="roofpig rpidx" data-config="base=Y | alg=L' B' R B L B' R' B"></div>
+    <div class="cube-alg">L' B' R B L B' R' B</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R2 D' R U2 R' D R U2 R|flags=showalg"></div>
-    <div class="cube-alg">Czeslaw (Cz)</div><div class="cube-label">Cz — Czeslaw</div>
+  <div class="ixcell">
+    <b>Cz — Czeslaw</b>
+    <div class="roofpig rpidx" data-config="base=Y | alg=R B2 R FZ R' B2 R F2 R2"></div>
+    <div class="cube-alg">R B2 R FZ R' B2 R F2 R2</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U R' U' R U R' U' R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">Denzel (Dz)</div><div class="cube-label">Dz — Denzel</div>
+  <div class="ixcell">
+    <b>Dz — Denzel</b>
+    <div class="roofpig rpidx" data-config="base=Y | alg=B2 RZ B' L2 B R2 B' L2 B'"></div>
+    <div class="cube-alg">B2 RZ B' L2 B R2 B' L2 B'</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=L' U' L U' L' U2 L U R U R' U R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">Evelyn (Ey)</div><div class="cube-label">Ey — Evelyn</div>
+  <div class="ixcell">
+    <b>Ey — Evelyn</b>
+    <div class="roofpig rpidx" data-config="base=Y | alg=F R' F' L F R F' L'"></div>
+    <div class="cube-alg">F R' F' L F R F' L'</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R' F R' B2 R F' R' B2 R2 U2 R2|flags=showalg"></div>
-    <div class="cube-alg">Eve (EE)</div><div class="cube-label">EE — Eve</div>
+  <div class="ixcell">
+    <b>EE — Eve</b>
+    <div class="roofpig rpidx" data-config="base=Y | alg=F U2 B' U F' U' B F UZ F'"></div>
+    <div class="cube-alg">F U2 B' U F' U' B F UZ F'</div>
   </div>
 </div>
 
-<div class="note">The full Step 5+6 index has 32 distinct positions across groups A–G. Each group page (yA through yG) lists all sub-cases and recommended solutions. For a complete reference, visit <a href="https://lar5.com/cube/yMain.html" target="_blank">lar5.com/cube/yMain.html</a>. The interactive cube widgets above demonstrate the key named sequences.</div>
+<p>Corner groups: <strong>A</strong> — Ax, AA &nbsp;·&nbsp; <strong>B</strong> — Bx, By, Bz, Bq, BB &nbsp;·&nbsp; <strong>C</strong> — Cx, Cy, Cz, CC &nbsp;·&nbsp; <strong>D</strong> — Dx, Dy, Dz, DD &nbsp;·&nbsp; <strong>E</strong> — Ex, Ey, EE &nbsp;·&nbsp; <strong>F</strong> — Fx, Fy, FF &nbsp;·&nbsp; <strong>G</strong> — Gx, Gy, Gz, GG</p>
+<p>The individual group pages (yA–yG) are on the live site at <a href="https://lar5.com/cube/yA.html" target="_blank">lar5.com/cube/yA.html</a> etc.</p>
 </section>
 
 
-<!-- ════════════════════ STEP 6+7 FULL INDEX ══════════════════ -->
+<!-- ══ STEP 6+7 INDEX ════════════════════════════════════════════ -->
 <section class="page-section" id="xmain">
-<h2 class="section-title">Step 6+7 Full Index</h2>
+<h2 class="section-title">Step 6+7 Final Layer Index</h2>
 
-<p>This is a complete index of all 50 possible positions in step 6, and how to best solve them. In step 6 all corners are in the right position but (probably) twisted wrong, and all edges twisted right but (probably) in the wrong position.</p>
-
-<p>There are 27 possible corner configurations. For each there are 12 possible edge configurations. So in total 27×12 = 324 different positions. Fortunately many are really the same position — just mirrored or rotated — leaving only 50 distinct positions. One is the solved position, and 2 (C1 and D1) are really the same position.</p>
-
-<p>For all positions, a simple solution is given that almost only consists of Sune, AntiSune, Rune, Bruno, and the step 7 sequences. Those use an average of 14.1 moves and at most 20. For about half the positions there are better known solutions ("perfect sequences") using an average of 12.9 moves. These were produced by Bernard Helmstetter using a computer program.</p>
-
-<p>The 7 corner groups are named A–G:</p>
+<p>A complete index of all 50 possible positions in step 6, and how to best solve them. In step 6 all corners are in the right position but (probably) twisted wrong, and all edges twisted right but (probably) in the wrong position.</p>
+<p>For all positions a simple solution is given using mainly Sune, AntiSune, Rune and Bruno — averaging 14.1 moves, at most 20. About half the positions also have better "perfect sequences" averaging 12.9 moves, produced by Bernard Helmstetter.</p>
+<p>The 7 corner groups A–G:</p>
 <ul>
   <li><strong>A</strong> — All corners correct. Step 7 only.</li>
   <li><strong>B</strong> — One correct corner. A single Sune can fix the corners.</li>
@@ -1209,317 +1066,331 @@ ROOFPIG_CONF_LLC    = "base=BASE|solved=U-/e|flags=showalg";
   <li><strong>G</strong> — Four incorrect corners "on heels". Let Bruno guide you.</li>
 </ul>
 
-<h4>Group A — All corners correct (1/27)</h4>
-<div class="cube-grid">
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LL|alg=|flags=showalg|solved=U-/c"></div>
-    <div class="cube-alg">— (solved)</div><div class="cube-label">A1 Nirvana</div>
+<div class="ixrow">
+  <div class="ixcell">
+    <b>B5 — Sune</b>
+    <div class="roofpig rpidx" data-config="base=X | alg=R U R' U R U2 R'"></div>
+    <div class="cube-alg">R U R' U R U2 R'</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLE|alg=R U' R U R U R U' R' U' R2|flags=showalg"></div>
-    <div class="cube-alg">Arne™</div><div class="cube-label">A2 Arne</div>
+  <div class="ixcell">
+    <b>B6 — AntiSune</b>
+    <div class="roofpig rpidx" data-config="base=X | alg=F' UZ F U F' U F"></div>
+    <div class="cube-alg">F' UZ F U F' U F</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLE|alg=R2 U2 R2 U2 R2 U2|flags=showalg"></div>
-    <div class="cube-alg">R2 U2 R2 U2 R2 U2</div><div class="cube-label">A3 Bert</div>
+  <div class="ixcell">
+    <b>B2 — Rune</b>
+    <div class="roofpig rpidx" data-config="base=X | alg=L' U' L U' L U L2 U L2 U2 L'"></div>
+    <div class="cube-alg">L' U' L U' L U L2 U L2 U2 L'</div>
   </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLE|alg=R2 U F B' R2 F' B U R2|flags=showalg"></div>
-    <div class="cube-alg">Allan™</div><div class="cube-label">A4 Allan</div>
+  <div class="ixcell">
+    <b>G4 — Bruno</b>
+    <div class="roofpig rpidx" data-config="base=X | alg=R U2 RZ U' R2 U' R2 U2 R"></div>
+    <div class="cube-alg">R U2 RZ U' R2 U' R2 U2 R</div>
   </div>
-</div>
-
-<h4>Group B — One correct corner (8/27)</h4>
-<p>B5 is Sune, B6 is AntiSune. B2 is Rune. B9 is Benny.</p>
-<div class="cube-grid">
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LL|alg=R U2 R' U' R U' R' R2 U F B' R2 F' B U R2|flags=showalg"></div>
-    <div class="cube-alg">AntiSune+Allan</div><div class="cube-label">B1</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U2 R2 U' R2 U' R2 U2 R|flags=showalg"></div>
-    <div class="cube-alg">R U2 R2 U' R2 U' R2 U2 R</div><div class="cube-label">B2 Rune™</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U R' U R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">R U R' U R U2 R'</div><div class="cube-label">B5 Sune™</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U2 R' U' R U' R'|flags=showalg"></div>
-    <div class="cube-alg">R U2 R' U' R U' R'</div><div class="cube-label">B6 AntiSune™</div>
+  <div class="ixcell">
+    <b>B9 — Benny</b>
+    <div class="roofpig rpidx" data-config="base=X | alg=R' U2 R2 U2 R2 U' R2 U' R2 U R"></div>
+    <div class="cube-alg">R' U2 R2 U2 R2 U' R2 U' R2 U R</div>
   </div>
 </div>
 
-<h4>Groups C–G (representative cases)</h4>
-<div class="cube-grid">
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U R' U' R U' R' U2 L' R U R' U' L|flags=showalg"></div>
-    <div class="cube-alg">Clix (Cx)</div><div class="cube-label">C1 Clix</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U R' U R U2 R' U2 R U R' U R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">Bruno™</div><div class="cube-label">G4 Bruno™</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R U R' U R U2 R' R U R' U R U2 R'|flags=showalg"></div>
-    <div class="cube-alg">Double Sune</div><div class="cube-label">F5 Double Sune</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=LLC|alg=R' F R' B2 R F' R' B2 R2|flags=showalg"></div>
-    <div class="cube-alg">Eve (EE)</div><div class="cube-label">EE Eve</div>
-  </div>
-</div>
-
-<div class="note">The complete Step 6+7 index lists all 50 positions with both simple and optimal solutions. For the full interactive reference, visit <a href="https://lar5.com/cube/xMain.html" target="_blank">lar5.com/cube/xMain.html</a>.</div>
+<p>The individual group pages (xA–xG) are on the live site at <a href="https://lar5.com/cube/xA.html" target="_blank">lar5.com/cube/xA.html</a> etc.</p>
 </section>
 
 
-<!-- ════════════════════ EXAMPLES ════════════════════════════ -->
+<!-- ══ EXAMPLES ══════════════════════════════════════════════════ -->
 <section class="page-section" id="examples">
-<h2 class="section-title">13 Annotated Solution Examples</h2>
+<h2 class="section-title">13 Annotated Solutions</h2>
 
-<p>These examples provide the kind of understanding that disjointed theory steps cannot — how I actually think when solving, what the considerations are, how much I can and can't see ahead. The positions are random ones taken from the Sunday competition for the Yahoo Speed Cubing club on Nov 25 2001.</p>
+<p>The positions are random ones taken from the Sunday competition for the Yahoo Speed Cubing club on Nov 25 2001. These are not speed solutions — each took several minutes of careful study. All based on what I can see and think ahead about when looking at a position.</p>
 
-<p>These are not speed solutions. Each took several minutes, thinking hard and studying the cube carefully for each turn. What I did not do was try out several different options to see which would lead to the best solution. It's all based on what I can see and think ahead about when looking at a position.</p>
-
-<p><strong>How to follow:</strong> Step through one turn at a time, and turn the cube around (click and drag) to see where the pieces are. Better yet — get the same position on your own cube and go through the solutions physically.</p>
-
-<p><strong>Acronyms:</strong> T1–7 = Turn 1–7 &nbsp;·&nbsp; YB edge = Yellow-Blue edge &nbsp;·&nbsp; BWO corner = Blue-White-Orange corner &nbsp;·&nbsp; RY/B pair = Red-Yellow edge and Red-Yellow-Blue corner &nbsp;·&nbsp; [P13/3] = The perfect solution is 13 turns, and would save 3 turns.</p>
-
-<div class="note">
-A few observations from doing this page:
-<ul>
-  <li>In the final turn of S2, I always check if I can flip a bad edge before or during it. About half the time I do (examples 4, 5, 6, 7, 8, 10, 12).</li>
-  <li>The "Broken corner" position comes up a few times (examples 2 and 4). Very useful in S4.</li>
-  <li>Surprisingly, for 7 of the 13 examples I solve S1+S2 in one go. The S1+2 solutions averaged 9.2 moves vs 11.5 for the normal cases, even starting from a worse position.</li>
-</ul>
+<div class="ruta">
+  <strong>The "Broken corner" position</strong> — very useful in S4 but also in S1 and S2. Worth memorising. It comes up in examples 2 and 4.
+  <div class="cube-row" style="margin-top:10px;">
+    <div class="cube-widget">
+      <div class="roofpig rp140" data-config="solved=UR-| colored=U UR URB UB| tweaks=L:R| alg=U R U' R| colors=U:g R:o B:w L:r"></div>
+      <div class="cube-alg">U R U' R</div>
+    </div>
+  </div>
 </div>
+
+<p><strong>Acronyms:</strong> T1–7 = Turn 1–7 &nbsp;·&nbsp; YB edge = Yellow-Blue edge &nbsp;·&nbsp; BWO corner = Blue-White-Orange corner &nbsp;·&nbsp; RY/B pair = Red-Yellow edge and Red-Yellow-Blue corner &nbsp;·&nbsp; [P13/3] = The perfect solution is 13 turns and would save 3 turns.</p>
 
 <h3>Example 1</h3>
+<ul>
+  <li><strong>T1–7. S1.</strong> Several 7-turn corners available.</li>
+  <li><strong>T8–10. S2.</strong> The BWO corner is the obvious choice, but BYR is also excellent.</li>
+  <li><strong>T11–15. S3.</strong> 4 bad edges.</li>
+  <li><strong>T16–24. S4.</strong> A simple S4 with no real choices except at T21.</li>
+  <li><strong>T25</strong> makes it easier to see the corners. [P13/3]</li>
+  <li><strong>T26–33. S5+6.</strong></li>
+  <li><strong>T33–41. S7.</strong> Arne (A2).</li>
+</ul>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=R' U' F' U F R U' R' U F' U F U' R U' B' U B U2 R' U R U' R' U2 R2 U' R' U' R U R' U R|flags=showalg"></div>
-    <div class="cube-label">Example 1 — full solution</div>
+    <div class="roofpig rpex" data-config="base=EX|pov=Dbl|alg=B2 L D' L' U'+U> F'+F> D R2+R<< U R' U> L' B L2 U L' U B U B U BZ U' B2 U B R D L' D' R' D L D L2+RZ U2 F D2 L2+RZ U2"></div>
   </div>
 </div>
-<p><strong>T1–7. S1.</strong> Several 7-turn corners available. I could easily start with another.</p>
-<p><strong>T8–10. S2.</strong> The BWO corner is the obvious choice, but BYR is also excellent.</p>
-<p><strong>T11–15. S3.</strong> 4 bad edges. It's tempting to try to preserve the RY/B and/or OG/Y pairs, but it's rarely worth it.</p>
-<p><strong>T16–24. S4.</strong> A simple S4 with no real choices except at T21.</p>
-<p><strong>T25</strong> makes it easier to see the corners. [P13/3]</p>
-<p><strong>T26–33. S5+6</strong> is a fundamental move to solve S5–6 for this corner config.</p>
-<p><strong>T33–41. S7</strong> Arne (A2).</p>
 
-<h3>Example 2–13</h3>
+<h3>Example 2</h3>
+<ul>
+  <li><strong>T1–4. S1.</strong> The existing BW/O pair makes this the obvious start.</li>
+  <li><strong>T5–10. S2.</strong> The BYO corner is a little easier than the other two.</li>
+  <li><strong>T11–15. S3.</strong> 2 ways to fix in 5 moves.</li>
+  <li><strong>T16–29. S4.</strong> Nothing too obvious — go for the GOW "broken corner".</li>
+  <li><strong>T30</strong> makes it easier to see the corners.</li>
+  <li><strong>T31–40. S6+7.</strong> (no S5) Bruno (G4).</li>
+</ul>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=R U R' U' R U' R' U F' U2 F R U' R' U2 F' U F R' U R U' R' U2 R U R' U' R U R' U' R U2 R'|flags=showalg"></div>
-    <div class="cube-label">Example 2</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=R2 U' R' U R' U' R U' R' U2 R U F' U' F R U' R' F R' F' R U R U' R' U R U2 R' U' R U' R'|flags=showalg"></div>
-    <div class="cube-label">Example 3</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=F' U F R U R' U' F' U F U R U' R' U2 R U R' U R U2 R' U R U2 R' U' R U' R'|flags=showalg"></div>
-    <div class="cube-label">Example 4</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=R' U R U' R2 F R F' U R U R' F' U2 F R U' R' U2 R U2 R' U' R U' R'|flags=showalg"></div>
-    <div class="cube-label">Example 5</div>
+    <div class="roofpig rpex" data-config="base=EX|pov=Ubr|alg=B' R B2 R2 U2 B B>> L D L' D' R B2+B<< R2 U' R U B' U' B U' B2 U' B' U2 B U2 B' U B U' F U2 F2 U' F2 U' F2 U2 F U2"></div>
   </div>
 </div>
+
+<h3>Example 3</h3>
+<ul>
+  <li><strong>T1–8. S1+2.</strong> The RY/B pair gives an obvious starting point. Luckily it also forms the OY/B pair, and with some unusual moves both S1 and S2 can be fixed simultaneously.</li>
+  <li><strong>T9–13. S3.</strong></li>
+  <li><strong>T14–20. S4.</strong></li>
+  <li><strong>T21–27. S5–6.</strong> Solved with a Niklas.</li>
+  <li><strong>T28</strong> colour adjustment.</li>
+  <li><strong>T29–37. S7.</strong> Allan (A4).</li>
+</ul>
 <div class="cube-row">
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=R U' R' U R U R' F' U' F R U' R2 U' R U' R' U2 R U R' U R U2 R' R2 U' R2 U' R2 U2 R2|flags=showalg"></div>
-    <div class="cube-label">Example 6</div>
+    <div class="roofpig" style="width:200px;height:226px;" data-config="base=EX|pov=dFr|alg=D'+D> F F>> R' U F>> L2 D L D' D>> B' R' U' B' U R' B' R2 B R2 B R' D< L B' R' B L' B' R B L2 B' U'+D L2 U+D' B' L2"></div>
   </div>
   <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=U R U' R' U R U2 R' U F' U F R' U' R U' R' U2 R U R' U R U2 R' U2 R U' R2 F R F'|flags=showalg"></div>
-    <div class="cube-label">Example 7</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=R U R' U2 R U' R' F U F' R U R' U' R U' R' U' R' U2 R U R' U R|flags=showalg"></div>
-    <div class="cube-label">Example 8</div>
-  </div>
-  <div class="cube-widget">
-    <div class="roofpig" data-config="base=BASE|alg=U' R U R' F R' F' R U' R U2 R' U' R U' R' R U R' U R U2 R' U' R2 U F B' R2 F' B U R2|flags=showalg"></div>
-    <div class="cube-label">Example 9</div>
+    <div class="roofpig" style="width:200px;height:226px;" data-config="base=EX|pov=dFr|alg=D'+D> F F>> R' U F>> L2 D2 L D2+D<< B R' U' B' U B2 R' B' R' B R D< L' B' L B' L2 B' L' B' L2 B L B L2 B2"></div>
+    <div class="cube-label">Alternative: uses perfect B4</div>
   </div>
 </div>
-<div class="note">Examples 10–13 follow the same structure: S1+2 combined or separate, S3 edge fix, S4 block completion, S5–7 last layer. To follow the full annotations, visit <a href="https://lar5.com/cube/examples.html" target="_blank">lar5.com/cube/examples.html</a> and step through each animation manually.</div>
+
+<h3>Example 4</h3>
+<ul>
+  <li><strong>T1–9. S1+2.</strong> Pick the GO/W pair — the first turn also forms the GR/W pair. Some original thinking lets us do both S1 &amp; S2 at once.</li>
+  <li><strong>T9–15. S3.</strong> 2 bad edges left after.</li>
+  <li><strong>T16–26. S4.</strong> GRY is a "broken corner".</li>
+  <li><strong>T27</strong> colour adjustment.</li>
+  <li><strong>T28–34. S5.</strong> A Niklas does S5 and sets up corners in Sune position.</li>
+  <li><strong>T35–41. S7.</strong> Sune (B5). [P11/3]</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|pov=ubR|alg=D2 B' R U2 U< F' R' U'+U> B U+U< F' U+U< L2 U' F U L F L' F L2 F' L U> F'+F> L' F' L F' L F'+F> R' F L' F'+F> R D' F' D F' D' F2 D"></div>
+  </div>
+</div>
+
+<h3>Example 5</h3>
+<ul>
+  <li><strong>T1–5. S1.</strong> YOB is the only decent corner to start with.</li>
+  <li><strong>T6–12. S2.</strong> All 3 corners suck — BWO looks a little more fun.</li>
+  <li><strong>T12–20. S3.</strong></li>
+  <li><strong>T21–31. S4.</strong></li>
+  <li><strong>T31–40. S7.</strong> (No S5 or S6) Allan (A4).</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|pov=dfL|alg=L' D2 B F' L' D>> B+B< U R U2 B' U2 R U R2 B R' U' L U L' B U B' U B' U' B' U B2 U B U' B R'+L U2 R+L' B U2"></div>
+  </div>
+</div>
+
+<h3>Example 6</h3>
+<ul>
+  <li><strong>T1–9. S1+2.</strong> The GO/Y pair is "stuck" — start for the GOW corner instead, while preserving the pair.</li>
+  <li><strong>T9–14. S3.</strong></li>
+  <li><strong>T15–27. S4.</strong></li>
+  <li><strong>T28–34. S5+6.</strong> Niklas.</li>
+  <li><strong>T35–43. S7.</strong> Allan (A4).</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|alg=F' L' U F2 L+L< D' R'+R> B' R'+R> U2 R' L' U' L+L< U' F' U' F U2 F U' F2 U F2 U' F U R> D' F U F' D F U' D2 F R'+L D2 R+L' F D2"></div>
+  </div>
+</div>
+
+<h3>Example 7</h3>
+<ul>
+  <li><strong>T1–12. S1+2.</strong> Only bad corners here. 12 moves is good for such a bad start.</li>
+  <li><strong>T12–19. S3.</strong> 6 bad edges needs 7 moves.</li>
+  <li><strong>T20–33. S4.</strong></li>
+  <li><strong>T34–41. S5+6.</strong></li>
+  <li><strong>T41–52. S7.</strong> Bert (A3).</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|pov=dBl|alg=L' D'+D> R R> U B' R>> F L' F2 R D' R D+D< R L' B+B< R' L2 U L' B2 U2 B2 U' B' U B U2 B U' B U B' U' D L' D' R D L D' R LZ F' D2 R2 LZ U2 R2+LZ F R2+LZ"></div>
+  </div>
+</div>
+
+<h3>Example 8</h3>
+<ul>
+  <li><strong>T1–7. S1.</strong> This one was painful! Best I can find is this 7-mover for OYG.</li>
+  <li><strong>T8–10. S2.</strong></li>
+  <li><strong>T10–12. S3.</strong> Only 2 bad edges.</li>
+  <li><strong>T13–24. S4.</strong></li>
+  <li><strong>T25–31. S5.</strong> Niklas.</li>
+  <li><strong>T32–41. S6+7.</strong> Bruno (G4).</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|alg=F R' U+U< L'+L> B2 L2 B' B> U< R F F> U> RZ F2 R U2 F U2 F2 U F' U2 F U' F' U F B U' F' U B' U' F L U2 L2 U' L2 U' L2 U2 L U'"></div>
+  </div>
+</div>
+
+<h3>Example 9</h3>
+<ul>
+  <li><strong>T1–6. S1+2.</strong> GO/Y looks like the perfect start, but you can build GR/Y first while keeping GO/Y intact, and do S1+2 as fast as S1 alone.</li>
+  <li><strong>T7–12. S3.</strong></li>
+  <li><strong>T13–23. S4.</strong></li>
+  <li><strong>T23–32. S5+6.</strong> One of the 2 diagonal corner swaps I know.</li>
+  <li><strong>T32–40. S7.</strong> Arne (A2).</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|pov=Ubr|alg=U R2 L' B2 U>> L< F' D2 F2+F<< D U' R U D' R' F' R F R F2 R' F' R F RZ FZ L F' R F L' R' F2 R' U2+DZ L2 B R2 UZ+D2 L2"></div>
+  </div>
+</div>
+
+<h3>Example 10</h3>
+<ul>
+  <li><strong>T1–7. S1.</strong> One of several 7-move options.</li>
+  <li><strong>T8–14. S2.</strong></li>
+  <li><strong>T14–18. S3.</strong></li>
+  <li><strong>T19–31. S4.</strong></li>
+  <li><strong>T32–39. S5+6.</strong> My standard move for this corner position.</li>
+  <li><strong>T39–51. S7.</strong> Bert (A3).</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|pov=Ufl|alg=U F' L2 F' U L2 U'+U> R'+R> F2 D2 R' F R2 F R> R2 F2 D F' R' D R2 D2 R2 D R' D' R D2 R' D R F' R' B R F R' B' R' L2 U' B2 LZ R2 F2 L2+RZ U LZ+R2 D'"></div>
+  </div>
+</div>
+
+<h3>Example 11</h3>
+<ul>
+  <li><strong>T1–10. S1+2.</strong> RWG and OWG are the corners to go for.</li>
+  <li><strong>T11–18. S3.</strong> 3 moves longer than needed to preserve 2 pairs.</li>
+  <li><strong>T19–25. S4.</strong></li>
+  <li><strong>T26–36. S5+6+7.</strong> Niklas plus Sune (B5). 7 + 7 = 11 when the sequences melt together. [P10/1]</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|pov=dBl|alg=L' B' F D D>> R' F'+F> U' F+F< D>> B D2 D< L' D F2 D' L2 D F' D' F L' F' L2 F L F' B' L F L' B L2 F' L F L2 F'"></div>
+  </div>
+</div>
+
+<h3>Example 12</h3>
+<ul>
+  <li><strong>T1–7. S1.</strong> BRY is one of several 7-move solutions.</li>
+  <li><strong>T8–13. S2.</strong> BRW is the least bad alternative.</li>
+  <li><strong>T13–20. S3.</strong></li>
+  <li><strong>T21–31. S4.</strong> GRY looks best.</li>
+  <li><strong>T32–45. S6+7.</strong> No S5. G3. [P12/2]</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|pov=dFr|alg=R' F2 D' R F+F< L' F2+F<< R'+R> D2 B' D' B D2 RZ+R>> B R+R< B' L' D' L B' D' B D' B D B D B' D' B R< F' D' F D' F' D2 F L' D' L D' L' D2 L"></div>
+  </div>
+</div>
+
+<h3>Example 13</h3>
+<ul>
+  <li><strong>T1–10. S1+2.</strong> A few 6-turn corners. Midway I decided to do S1+S2. T5–6 sets up S2 in mid S1.</li>
+  <li><strong>T11–15. S3.</strong> Textbook S3.</li>
+  <li><strong>T16–28. S4.</strong></li>
+  <li><strong>T29</strong> colour adjustment.</li>
+  <li><strong>T30–40. S5+6.</strong> My standard move for this corner position. [P13/6]</li>
+  <li><strong>T40–48. S7.</strong> Allan (A4).</li>
+</ul>
+<div class="cube-row">
+  <div class="cube-widget">
+    <div class="roofpig rpex" data-config="base=EX|pov=ufL|alg=B U F D2+D<< U' B R2 D' R2 U2 D+D< L2 DZ B D B2 L B' L B' L' B' L' B L2 B' L' B U> L' F L' B' L F' L B L B' L B' L' U+D' B2 U'+D L' B2"></div>
+  </div>
+</div>
+
+<div class="note">Averages for 13 solutions: S1+S2 = 10.2 turns · S3 = 5.6 turns · S4 = 11.3 turns · S5–7 = 15.4 turns · <strong>Total = 42.5 turns</strong></div>
 </section>
 
 
-<!-- ════════════════════ PHYSICAL ════════════════════════════ -->
-<section class="page-section" id="physical">
-<h2 class="section-title">Physical — Speed &amp; Dexterity</h2>
-
-<p>Though the mental side may be the most interesting, there is also a strong physical side to speed cubing. You need a good cube and fast fingers, to have any chance of achieving world class speed!</p>
-
-<h3>The cube itself</h3>
-<p>These days it's hard to find a bad cube. A cube you find at a regular retailer is most likely a good speed cube. Springs in the "skeleton" are vital to quality cubing. You can sense if there is one by pulling on a layer — it should have a "springy" give of 1 millimetre or so. Do <strong>NOT</strong> buy a springless cube!</p>
-<p>Though some cubes can get pretty good without treatment, I recommend that you lube it. Many lubricants work. Silicone spray works for months and is what all speed cubers use. You can get it cheaply at any automotive store.</p>
-
-<h3>Dexterity — Think in "columns"</h3>
-<p>Every sequence of two (often more) moves can be done with column moves, that halves the number of movements you need to make. It takes a while to get to see sequences as moving columns instead of separate turns, but it's very easy once you "get" it.</p>
-
-<h3>The Trigger</h3>
-<p>Hold with your left hand the thumb on the near face and the middle finger on the far face. The index finger should not be part of the grip, but should press gently on the corner sticker during the first turn. When it is about ¾ complete, you can turn the top layer with the index finger. Meanwhile, start gently turning back. When the second turn is ¾ done, you will be able to do the third turn instantly.</p>
-<p>This can be done ridiculously fast, 0.1 seconds or so. But start practising slower…</p>
-<p>Sune™ (7 moves) at top speed takes 0.70 seconds — that's 7 moves in 30 frames, with more than one full turn done in a single frame.</p>
-</section>
-
-
-<!-- ════════════════════ MENTAL ══════════════════════════════ -->
-<section class="page-section" id="mental">
-<h2 class="section-title">Mental — The Zen of the Cube</h2>
-
-<p>Being able to solve Rubik's Cube very fast is a near useless skill, that takes a lot of time to acquire, and does not typically impress the opposite sex. If you think you have better things to do, I can only agree. You probably have.</p>
-<p>Still, I think that learning to do <em>something</em> really well is important for anybody, and it's not too important what it is. If you have mastered one thing, it is a bit easier to master others. And doing something you're <em>really</em> good at is uplifting, relaxing and fun. Cubing is certainly cheaper than golf!</p>
-
-<h3>How to practise</h3>
-<p>Of course, you need to practise speed cubing a lot to get fast. But you also need to spend a lot of time <strong>thinking</strong>. Trying to solve in as few moves as possible, while thinking carefully about each turn. You will not learn how to do something fast until you learned how to do it slow!</p>
-
-<h3>Cube Nirvana</h3>
-<p>Strangely, for me, progress was a lot of quantum leaps. I would consistently solve the cube in about the same time, for example 80–90 seconds. Then suddenly one day I would achieve 67 seconds! And from then on I would perform in that range for some weeks, until I suddenly did 52 seconds. In this manner I progressed from 3 minutes down to about 25 seconds in a series of leaps.</p>
-<p>Another weird thing is that I do not think at all when cubing. I can talk freely about anything while doing world-class speed. It seems like I just need to hook up my eyes and hands to some independent processor part of my brain, and it will just solve it before my eyes. It's a bit strange, but a pretty nice feeling!</p>
-</section>
-
-
-<!-- ════════════════════ QUICK REF ════════════════════════════ -->
+<!-- ══ QUICK REF ══════════════════════════════════════════════════ -->
 <section class="page-section" id="quickref">
 <h2 class="section-title">Algorithm Quick Reference</h2>
 
 <div class="ref-strip">
-  <h3>All Named Sequences</h3>
+  <h3>Named Sequences</h3>
   <div class="ref-grid">
-    <div class="ref-item"><div class="ri-name">Sune™</div><div class="ri-alg">R U R' U R U2 R'</div><div class="ri-step">Step 6 — corner twist</div></div>
+    <div class="ref-item"><div class="ri-name">Sune™</div><div class="ri-alg">B U B' U B U2 B'</div><div class="ri-step">Step 6 (also R U R' U R U2 R' depending on POV)</div></div>
     <div class="ref-item"><div class="ri-name">Left Sune™</div><div class="ri-alg">L' U' L U' L' U2 L</div><div class="ri-step">Step 6 — mirror</div></div>
-    <div class="ref-item"><div class="ri-name">AntiSune™</div><div class="ri-alg">R U2 R' U' R U' R'</div><div class="ri-step">Step 6 — edges different</div></div>
-    <div class="ref-item"><div class="ri-name">Bruno™</div><div class="ri-alg">Sune · U2 · Sune</div><div class="ri-step">Step 6 — double Sune</div></div>
-    <div class="ref-item"><div class="ri-name">Rune™</div><div class="ri-alg">R U2 R2 U' R2 U' R2 U2 R</div><div class="ri-step">Step 6+7 index (B2)</div></div>
-    <div class="ref-item"><div class="ri-name">Benny™</div><div class="ri-alg">R U R' U' R U' R' U2 R U2 R' U' R U R'</div><div class="ri-step">Step 6+7 index (B9)</div></div>
-    <div class="ref-item"><div class="ri-name">Niklas™</div><div class="ri-alg">R U' L' U R' U' L U</div><div class="ri-step">Step 5 — swap corners</div></div>
-    <div class="ref-item"><div class="ri-name">Niklas™ Mirror</div><div class="ri-alg">L' U R U' L U R' U'</div><div class="ri-step">Step 5 — mirror</div></div>
-    <div class="ref-item"><div class="ri-name">Allan™</div><div class="ri-alg">R2 U F B' R2 F' B U R2</div><div class="ri-step">Step 7 — 3-edge CW (8/12)</div></div>
-    <div class="ref-item"><div class="ri-name">Allan™ Mirror</div><div class="ri-alg">R2 U' F B' R2 F' B U' R2</div><div class="ri-step">Step 7 — 3-edge CCW</div></div>
-    <div class="ref-item"><div class="ri-name">Bert™</div><div class="ri-alg">R2 U2 R2 U2 R2 U2</div><div class="ri-step">Step 7 — H-perm (2/12)</div></div>
-    <div class="ref-item"><div class="ri-name">Bert™ (Knights)</div><div class="ri-alg">M2 U M2 U2 M2 U M2</div><div class="ri-step">Step 7 — faster H-perm</div></div>
-    <div class="ref-item"><div class="ri-name">Arne™</div><div class="ri-alg">R U' R U R U R U' R' U' R2</div><div class="ri-step">Step 7 — Z-perm (1/12)</div></div>
-    <div class="ref-item"><div class="ri-name">Arne™ (alt)</div><div class="ri-alg">M2 U M2 U M' U2 M2 U2 M'</div><div class="ri-step">Step 7 — no grip shift</div></div>
-    <div class="ref-item"><div class="ri-name">Buffy™ (By)</div><div class="ri-alg">R U2 R' U' R U' R' L' U2 L U L' U L</div><div class="ri-step">Step 5+6 index</div></div>
-    <div class="ref-item"><div class="ri-name">Eve™ (EE)</div><div class="ri-alg">R' F R' B2 R F' R' B2 R2</div><div class="ri-step">Step 5+6 index (diagonal)</div></div>
+    <div class="ref-item"><div class="ri-name">AntiSune™</div><div class="ri-alg">R' U2 R U R' U R</div><div class="ri-step">Step 6 — edges land differently</div></div>
+    <div class="ref-item"><div class="ri-name">Bruno™</div><div class="ri-alg">R U2 R2 U' R2 U' R2 U2 R</div><div class="ri-step">Step 6 — G4</div></div>
+    <div class="ref-item"><div class="ri-name">Rune™</div><div class="ri-alg">L' U' L U' L U L2 U L2 U2 L'</div><div class="ri-step">Step 6+7 index — B2</div></div>
+    <div class="ref-item"><div class="ri-name">Benny™</div><div class="ri-alg">R' U2 R2 U2 R2 U' R2 U' R2 U R</div><div class="ri-step">Step 6+7 index — B9</div></div>
+    <div class="ref-item"><div class="ri-name">Niklas™</div><div class="ri-alg">L U' R' U L' U' R U2</div><div class="ri-step">Step 5 — swap adjacent corners</div></div>
+    <div class="ref-item"><div class="ri-name">Allan™</div><div class="ri-alg">F2 U' L+R' F2 L'+R U' F2</div><div class="ri-step">Step 7 — 3-edge cycle (8/12)</div></div>
+    <div class="ref-item"><div class="ri-name">Bert™</div><div class="ri-alg">FZ B2 D R2 FZ B2 L2 FZ B2 D' FZ B2</div><div class="ri-step">Step 7 — H-perm (2/12)</div></div>
+    <div class="ref-item"><div class="ri-name">Arne™</div><div class="ri-alg">R2 FZ B2 L2 D L2 B2 FZ R2</div><div class="ri-step">Step 7 — Z-perm (1/12)</div></div>
+    <div class="ref-item"><div class="ri-name">Buffy™ (By)</div><div class="ri-alg">L' UZ L U2 R U' L' U L+R'</div><div class="ri-step">Step 5+6 index</div></div>
+    <div class="ref-item"><div class="ri-name">Eve™ (EE)</div><div class="ri-alg">F U2 B' U F' U' B F UZ F'</div><div class="ri-step">Step 5+6 index — diagonal</div></div>
+    <div class="ref-item"><div class="ri-name">Clix™ (Cx)</div><div class="ri-alg">L' B' R B L B' R' B</div><div class="ri-step">Step 5+6 index</div></div>
+    <div class="ref-item"><div class="ri-name">Evelyn™ (Ey)</div><div class="ri-alg">F R' F' L F R F' L'</div><div class="ri-step">Step 5+6 index</div></div>
   </div>
 </div>
 
-<h3>Step 3 edge fixes</h3>
-<table>
-<tr><th>Algorithm</th><th>Use when</th></tr>
-<tr><td><code>F R' F'</code></td><td>2 adjacent bad edges (basic fix)</td></tr>
-<tr><td><code>R' F R</code></td><td>Mirror of above</td></tr>
-<tr><td><code>R2 F2 R2</code></td><td>2 opposite bad edges in free layer</td></tr>
-<tr><td><code>R2 F2 R2 F2</code></td><td>All 4 free-layer edges bad</td></tr>
-<tr><td><code>R2 F2 R2 F R' F'</code></td><td>Common 6-bad configuration</td></tr>
-</table>
-
-<h3>Step 4b sequences</h3>
-<table>
-<tr><th>ID</th><th>Algorithm</th></tr>
-<tr><td>a1</td><td><code>R U R'</code></td></tr>
-<tr><td>a2</td><td><code>R U' R' U² R U R'</code></td></tr>
-<tr><td>a3</td><td><code>R U² R' U R U' R'</code></td></tr>
-<tr><td>a4</td><td><code>R U' R' U' R U R'</code></td></tr>
-<tr><td>a5</td><td><code>R U R' U R U' R'</code></td></tr>
-<tr><td>a6</td><td><code>R U R' U' R U² R'</code></td></tr>
-<tr><td>b1</td><td><code>L F² U F² U' F² L'</code></td></tr>
-<tr><td>b2</td><td><code>R U' R' U R U' R'</code></td></tr>
-<tr><td>b3</td><td><code>R U² R' U² R U R'</code></td></tr>
-<tr><td>c1</td><td><code>R U² R' U' R U R'</code></td></tr>
-<tr><td>c2</td><td><code>R U' R' U R U R'</code></td></tr>
-<tr><td>c3</td><td><code>R' U² R² U R² U R</code></td></tr>
-<tr><td>c4</td><td><code>R' U² R' U R' U' R U² R</code></td></tr>
-<tr><td>c5</td><td><code>R² U² R' U' R U' R²</code></td></tr>
-<tr><td>d1</td><td><code>R² U R² U R² U² R²</code></td></tr>
-<tr><td>d2</td><td><code>R U' R' U' R U² R'</code></td></tr>
-<tr><td>d3</td><td><code>F' U F U F' U² F</code></td></tr>
-<tr><td>d4</td><td><code>R² U² R' U' R U' R' U² R'</code></td></tr>
-<tr><td>d5</td><td><code>F² U² F U F' U F U² F</code></td></tr>
+<h3>Step 4b sequence list</h3>
+<table class="rules-table">
+<tr><th>ID</th><th>Algorithm</th><th>ID</th><th>Algorithm</th></tr>
+<tr><td>a1</td><td><code>R U R'</code></td><td>c1</td><td><code>R U2 R' U' R U R'</code></td></tr>
+<tr><td>a2</td><td><code>R U' R' U2 R U R'</code></td><td>c2</td><td><code>R U' R' U R U R'</code></td></tr>
+<tr><td>a3</td><td><code>R U2 R' U R U' R'</code></td><td>c3</td><td><code>R' U2 R2 U R2 U R</code></td></tr>
+<tr><td>a4</td><td><code>R U' R' U' R U R'</code></td><td>c4</td><td><code>R' U2 R' U R' U' R U2 R</code></td></tr>
+<tr><td>a5</td><td><code>R U R' U R U' R'</code></td><td>c5</td><td><code>R2 U2 R' U' R U' R2</code></td></tr>
+<tr><td>a6</td><td><code>R U R' U' R U2 R'</code></td><td>d1</td><td><code>R2 U R2 U R2 U2 R2</code></td></tr>
+<tr><td>b1</td><td><code>L F2 U F2 U' F2 L'</code></td><td>d2</td><td><code>R U' R' U' R U2 R'</code></td></tr>
+<tr><td>b2</td><td><code>R U' R' U R U' R'</code></td><td>d3</td><td><code>F' U F U F' U2 F</code></td></tr>
+<tr><td>b3</td><td><code>R U2 R' U2 R U R'</code></td><td>d4</td><td><code>R2 U2 R' U' R U' R' U2 R'</code></td></tr>
+<tr><td></td><td></td><td>d5</td><td><code>F2 U2 F U F' U F U2 F</code></td></tr>
 </table>
 </section>
 
 <hr>
 <footer>
   Original content by Lars Petrus &nbsp;·&nbsp; <em>lar5.com/cube</em> &nbsp;·&nbsp; Site created March 9 1997 &nbsp;·&nbsp; Last updated May 14 2014<br>
-  Animations powered by <a href="https://github.com/larspetrus/Roofpig">Roofpig</a> (MIT licence) &nbsp;·&nbsp; This collation for personal study use only
+  Animations powered by <a href="https://github.com/larspetrus/Roofpig">Roofpig</a> (MIT licence) &nbsp;·&nbsp; Collated for personal study use only
 </footer>
+</div>
 
-</div><!-- /page-wrap -->
-
-<!-- ═══════════════════════════════════════════════════════════
-     PRINT SNAPSHOT SCRIPT
-     Before printing: converts every Roofpig canvas to a static
-     <img> snapshot so it appears in print output.
-     After printing: removes the snapshot images.
-     ═══════════════════════════════════════════════════════════ -->
+<!-- ══ PRINT SNAPSHOT SCRIPT ═════════════════════════════════════ -->
 <script>
 (function() {
-
   function snapAllCubes() {
-    // Wait a moment to ensure Roofpig has finished rendering
     document.querySelectorAll('.roofpig').forEach(function(widget) {
-      // Find the canvas Roofpig rendered into
       var canvas = widget.querySelector('canvas');
       if (!canvas) return;
-      // Already snapped?
       if (widget.querySelector('.print-snapshot')) return;
-
       try {
         var dataUrl = canvas.toDataURL('image/png');
         var img = document.createElement('img');
         img.className = 'print-snapshot';
         img.src = dataUrl;
-        img.style.display = 'none'; // hidden on screen, shown in print CSS
-        img.style.width  = canvas.style.width  || canvas.offsetWidth  + 'px';
-        img.style.height = canvas.style.height || canvas.offsetHeight + 'px';
+        img.style.display = 'none';
+        img.style.width  = canvas.offsetWidth  + 'px';
+        img.style.height = canvas.offsetHeight + 'px';
         widget.appendChild(img);
-      } catch(e) {
-        // cross-origin canvas taint — leave it; the canvas itself may still print
-      }
+      } catch(e) {}
     });
   }
-
   function removeSnapshots() {
-    document.querySelectorAll('.print-snapshot').forEach(function(el) {
-      el.remove();
-    });
+    document.querySelectorAll('.print-snapshot').forEach(function(el) { el.remove(); });
   }
-
-  // Hook into the browser print lifecycle
   if (window.matchMedia) {
-    var mq = window.matchMedia('print');
-    mq.addListener(function(m) {
-      if (m.matches) {
-        snapAllCubes();
-      } else {
-        setTimeout(removeSnapshots, 500);
-      }
+    window.matchMedia('print').addListener(function(m) {
+      if (m.matches) { snapAllCubes(); } else { setTimeout(removeSnapshots, 500); }
     });
   }
-
-  // Also hook beforeprint / afterprint for broader support
-  window.addEventListener('beforeprint', function() {
-    // Give Roofpig time to render if page just loaded
-    setTimeout(snapAllCubes, 200);
-  });
-
-  window.addEventListener('afterprint', function() {
-    setTimeout(removeSnapshots, 500);
-  });
-
-  // Expose manually for testing: window.snapCubes()
+  window.addEventListener('beforeprint', function() { setTimeout(snapAllCubes, 200); });
+  window.addEventListener('afterprint',  function() { setTimeout(removeSnapshots, 500); });
   window.snapCubes = snapAllCubes;
-
 })();
 </script>
 
