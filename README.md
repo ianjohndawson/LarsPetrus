@@ -1,4 +1,3 @@
-Petrus Method
 A complete single-page reference for Lars Petrus's method of solving Rubik's Cube for speed.
 Contents
 All pages from lar5.com/cube collated into one document:
